@@ -1,7 +1,9 @@
+import Header from "@/components/Header";
+
 export default function Home() {
   return (
-    <div>
-      Trang chủ
+    <div className="flex flex-col">
+      <Header />
     </div>
   )
 }
