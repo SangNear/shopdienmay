@@ -18,10 +18,11 @@ const TextField = ({ label, value, onChange }: TextFieldProps) => {
                 required
             />
             <label className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-all duration-200 ease-in
-              ${value ? '-top-1 text-xs text-white' : 'text-gray-500'} 
+              ${value ? '-top-2 text-xs text-white' : 'text-gray-500'} 
               peer-focus:-top-1 peer-focus:text-xs peer-focus:text-white whitespace-nowrap`}>
                 {label}
             </label>
+
         </div>
     )
 }
