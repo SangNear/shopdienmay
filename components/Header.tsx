@@ -6,7 +6,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const Header = () => {
   const [value, setValue] = useState('')
   return (
-    <div className='max-md:px-8 lg:px-20 py-6 px-2 w-full bg-[#fe0000] flex justify-between max-md:flex-col gap-4'>
+    <div className='max-md:px-2 lg:px-10 py-6 px-2 w-full bg-[#fe0000] flex justify-between max-md:flex-col gap-4'>
       <div className='flex justify-between items-center w-full'>
         <h1 className='font-bold text-white text-3xl max-sm:text-2xl '>Shop dien may</h1>
         <div className='w-[40%] relative flex items-center max-lg:w-[50%]'>

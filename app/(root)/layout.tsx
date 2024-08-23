@@ -4,6 +4,7 @@ import "../globals.css";
 import Head from "next/head";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Menu from "@/components/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-col">
           <Header />
-          <Hero />
+          <Menu />
         </div>
 
         {children}
