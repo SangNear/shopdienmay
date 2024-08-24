@@ -20,8 +20,8 @@ const MenuMobile = () => {
     return (
         <div className='flex fixed bottom-0 w-full  h-14 items-center justify-evenly lg:hidden border-t shadow-2xl'>
             <div className='flex flex-1 h-full items-center justify-center max-lg:flex-col hover:bg-[#fe0000] transition-all hover:text-white  cursor-pointer rounded-t-xl' >
-                <MenuIcon className='text-3xl' onClick={() => setOpenMenuMobile(true)} />
-                <span className='whitespace-nowrap' >Danh mục</span>
+                <MenuIcon className='text-3xl ' onClick={() => setOpenMenuMobile(true)} />
+                <span className='whitespace-nowrap  ' >Danh mục</span>
                 <Drawer open={openMenuMobile} onClose={() => setOpenMenuMobile(false)}>
                     <Box sx={{ width: 250 }} role="presentation" onClick={() => setOpenMenuMobile(false)}>
                         <List>
@@ -45,16 +45,16 @@ const MenuMobile = () => {
                 </Drawer>
             </div>
             <div className='flex flex-1 h-full items-center justify-center max-lg:flex-col hover:bg-[#fe0000] transition-all hover:text-white  cursor-pointer rounded-t-xl '>
-                <AddShoppingCartIcon />
-                <span className='whitespace-nowrap' >Giỏ hàng</span>
+                <AddShoppingCartIcon  className=''/>
+                <span className='whitespace-nowrap ' >Giỏ hàng</span>
             </div>
             <div className='flex flex-1 h-full items-center justify-center max-lg:flex-col hover:bg-[#fe0000] transition-all hover:text-white  cursor-pointer rounded-t-xl'>
-                <AddShoppingCartIcon />
-                <span className='whitespace-nowrap' >Tra cứu đơn hàng</span>
+                <AddShoppingCartIcon className='' />
+                <span className='whitespace-nowrap ' >Tra cứu đơn hàng</span>
             </div>
             <div className='flex flex-1 h-full items-center justify-center max-lg:flex-col hover:bg-[#fe0000] transition-all hover:text-white cursor-pointer rounded-t-xl'>
-                <AddShoppingCartIcon />
-                <span className='whitespace-nowrap' >Tài khoản</span>
+                <AddShoppingCartIcon className='' />
+                <span className='whitespace-nowrap ' >Tài khoản</span>
             </div>
         </div>
     )

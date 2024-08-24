@@ -14,7 +14,7 @@ const TextField = ({ label, value, onChange }: TextFieldProps) => {
                 type='text'
                 value={value}
                 onChange={onChange}
-                className='rounded-2xl py-3 px-4 w-full border border-gray-300 focus:border-[#fe0000] focus:ring-0 focus:outline-none peer'
+                className='rounded-2xl relative py-1 px-4 w-full border border-gray-300 focus:border-[#fe0000] focus:ring-0 focus:outline-none peer'
                 required
             />
             <label className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-all duration-200 ease-in
