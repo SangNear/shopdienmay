@@ -1,57 +1,51 @@
+"use client"
 import Link from "next/link";
-import React from "react";
-import TvIcon from "@mui/icons-material/Tv";
-import SpeakerIcon from '@mui/icons-material/Speaker';
-import SettingsVoiceIcon from '@mui/icons-material/SettingsVoice';
-import KitchenIcon from '@mui/icons-material/Kitchen';
-import KitchenOutlinedIcon from '@mui/icons-material/KitchenOutlined';
-import LocalLaundryServiceOutlinedIcon from '@mui/icons-material/LocalLaundryServiceOutlined';
-import WindPowerIcon from '@mui/icons-material/WindPower';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
+import React, { useState } from "react";
+import { menuNavLinks } from "@/constants";
 const Menu = () => {
-  return (
-    <div className="w-full bg-[red] lg:px-10
-     max-lg:hidden">
-      <div className="flex justify-between">
-      <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <TvIcon />
-          <span>Tv</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <SpeakerIcon />
-          <span>loa</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <SettingsVoiceIcon />
-          <span>dàn karaoke</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <KitchenOutlinedIcon />
-          <span>tủ lạnh</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <KitchenIcon />
-          <span>tủ đông</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <KitchenOutlinedIcon />
-          <span>tủ mát</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <LocalLaundryServiceOutlinedIcon />
-          <span>máy giặt</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <WindPowerIcon />
-          <span>máy quạt</span>
-        </Link>
-        <Link href="/tv" className="flex flex-col  text-white items-center hover:bg-white hover:text-[#fe0000]  rounded-xl px-4 py-2 ">
-          <AcUnitIcon />
-          <span>máy lạnh</span>
-        </Link>
-      </div>
-    </div>
-  );
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    return (
+        <div className="w-full bg-[red] lg:px-10 max-lg:hidden relative">
+            <div className="flex justify-between relative">
+                {menuNavLinks.map((item, index) => {
+                    const IconComponent = item.icon; // Dynamically reference the icon
+                    return (
+                        <div
+                            key={index}
+                            className=""
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            <Link
+                                href={item.route}
+                                className="flex flex-col text-white items-center hover:bg-white hover:text-[#fe0000] rounded-xl px-4 py-2"
+                            >
+                                <IconComponent /> {/* Render the icon component */}
+                                <span>{item.name}</span>
+                            </Link>
+                            {
+                                hoveredIndex === index &&
+                                <div className="absolute left-0 top-full grid grid-cols-4 gap-4 w-full bg-white h-60 rounded-xl border shadow-lg lg:px-10">
+                                    {item.subMenu?.map((sub) => (
+                                        <div className="flex flex-col">
+                                            <h4 className="text-lg font-semibold ">{sub.subMenuTitle}</h4>
+                                            <div className="flex flex-col gap-2">
+                                                {sub.subMenuRoute.map((subroute) => (
+                                                    <span className="text-base hover:text-[#fe0000] cursor-pointer w-fit ml-3">
+                                                        {subroute}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            }
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
 };
 
 export default Menu;

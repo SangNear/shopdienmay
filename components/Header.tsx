@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 import TextField from './TextField'
 import SearchIcon from '@mui/icons-material/Search';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 const Header = () => {
   const [value, setValue] = useState('')
+  
   return (
     <div className='max-md:px-2 lg:px-10 py-6 px-2 w-full bg-[#fe0000] flex justify-between max-md:flex-col gap-4'>
       <div className='flex justify-between items-center w-full'>
@@ -31,6 +33,7 @@ const Header = () => {
             <span className='whitespace-nowrap' >Tài khoản</span>
           </div>
         </div>
+        
       </div>
       {/* <div className=' relative flex items-center md:hidden w-full'>
         <TextField

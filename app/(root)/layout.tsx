@@ -5,6 +5,7 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Menu from "@/components/Menu";
+import MenuMobile from "@/components/MenuMobile";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <div className="flex flex-col">
           <Header />
           <Menu />
+          <MenuMobile />
         </div>
 
         {children}

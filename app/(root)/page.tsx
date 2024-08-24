@@ -5,13 +5,9 @@ import MenuMobile from "@/components/MenuMobile";
 
 export default function Home() {
   return (
-    <>
-      <div className="flex flex-col w-full max-md:px-8 lg:px-20 px-2">
-
-
-      </div>
-      <MenuMobile />
-    </>
+    <div className="flex flex-col ">
+      <Banner />
+    </div>
 
   )
 }
