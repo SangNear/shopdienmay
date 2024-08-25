@@ -1,10 +1,7 @@
 "use client";
 import { imagesCarousel } from "@/constants";
-import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import card1 from "../public/assets/card/card1.jpg";
-import card2 from "../public/assets/card/card1.jpg";
 const Banner = () => {
   const [curr, setCurr] = useState(0);
   const prev = () => {
