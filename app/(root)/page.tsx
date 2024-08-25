@@ -52,7 +52,7 @@ export default function Home() {
             Ưu đãi dành cho bạn
           </h2>
           <Separator />
-          <div className="mt-2 flex flex-wrap justify-center gap-2 m-auto items-center  pb-5 ">
+          <div className="mt-2 flex flex-wrap justify-evenly gap-2 m-auto items-center  pb-5 ">
             <ProductCart />
             <ProductCart />
             <ProductCart />

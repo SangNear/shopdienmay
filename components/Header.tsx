@@ -13,6 +13,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Link from "next/link";
 import ListItemText from "@mui/material/ListItemText";
+import { Separator } from "./ui/separator";
 
 const Header = () => {
   const [value, setValue] = useState("");
@@ -25,7 +26,7 @@ const Header = () => {
         </h1>
         <div className="md:hidden">
           <MenuIcon
-            className="text-sm "
+            className="text-sm text-white"
             onClick={() => setOpenMenuMobile(true)}
           />
           <Drawer
@@ -38,6 +39,10 @@ const Header = () => {
               role="presentation"
               onClick={() => setOpenMenuMobile(false)}
             >
+              <h2 className="p-4 text-xl whitespace-nowrap font-semibold">
+                Danh mục sản phẩm
+              </h2>
+              <Separator />
               <List>
                 {menuNavLinks.map((item, index) => {
                   const IconComponent = item.icon;
