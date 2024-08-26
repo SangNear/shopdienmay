@@ -19,7 +19,7 @@ const Header = () => {
   const [value, setValue] = useState("");
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   return (
-    <div className="max-md:px-2 lg:px-10 py-6 px-2 w-full  flex justify-between max-md:flex-col gap-4 max-lg:bg-[#fe0000]">
+    <div className="max-md:px-2 lg:px-20 py-6 px-2 w-full  flex justify-between max-md:flex-col gap-4 max-lg:bg-[#fe0000]">
       <div className="flex justify-between items-center w-full">
         <h1 className="font-bold max-lg:text-white text-[#fe0000] text-2xl max-sm:text-xl  ">
           Shop dien may

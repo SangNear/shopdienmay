@@ -5,7 +5,7 @@ import { menuNavLinks } from "@/constants";
 const Menu = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <div className="w-full bg-[red] lg:px-10 max-lg:hidden relative z-10">
+    <div className="w-full bg-[red] lg:px-20 max-lg:hidden relative z-10">
       <div className="flex justify-between relative">
         {menuNavLinks.map((item, index) => {
           const IconComponent = item.icon; // Dynamically reference the icon
