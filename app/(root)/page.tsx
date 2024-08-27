@@ -87,7 +87,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold uppercase text-white text-center mt-2 p-2 bg-[#fe0000]">
             Hệ thống kho hàng
           </h2>
-          <div className="w-full flex flex-wrap justify-around">
+          <div className="w-full grid grid-cols-2 max-sm:grid-cols-1 justify-items-center m-auto">
             <ImageStock />
             <ImageStock />
             <ImageStock />

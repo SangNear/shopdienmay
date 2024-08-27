@@ -15,7 +15,7 @@ const ImageStock = () => {
     )
     return (
         <div className='flex flex-col gap-2  my-3'>
-            <h3 className='p-2 uppercase bg-white border rounded-xl text-[#fe0000] text-center font-bold'>Kho máy giặt</h3>
+            <h3 className='w-[50%] p-2 uppercase bg-white border  text-[#fe0000] text-center font-bold'>Kho máy giặt</h3>
             <Carousel
                 plugins={[
                     Autoplay({

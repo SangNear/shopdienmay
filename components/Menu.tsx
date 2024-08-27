@@ -32,12 +32,13 @@ const Menu = () => {
                       </h4>
                       <div className="flex flex-col gap-2">
                         {sub.subMenuRoute.map((subroute) => (
-                          <span
+                          <Link
+                            href={subroute}
                             key={subroute}
                             className="text-base hover:text-[#fe0000] cursor-pointer w-fit ml-3"
                           >
                             {subroute}
-                          </span>
+                          </Link>
                         ))}
                       </div>
                     </div>
