@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import SpeedDialComponent from "@/components/SpeedDial";
 import ListProducts from "@/components/ListProducts";
 import ImageStock from "@/components/ImageStock";
+import { maygiatImageStock, maylanhImageStock, tiviImageStock, tulanhImageStock } from "@/constants";
 
 export default function Home() {
   return (
@@ -88,10 +89,10 @@ export default function Home() {
             Hệ thống kho hàng
           </h2>
           <div className="w-full grid grid-cols-2 max-sm:grid-cols-1 justify-items-center m-auto">
-            <ImageStock />
-            <ImageStock />
-            <ImageStock />
-            <ImageStock />
+            <ImageStock title="tủ lạnh" imageStock={tulanhImageStock} />
+            <ImageStock title="máy lạnh" imageStock={maylanhImageStock} />
+            <ImageStock title="máy giặt" imageStock={maygiatImageStock} />
+            <ImageStock title="ti vi" imageStock={tiviImageStock} />
           </div>
         </div>
       </div>

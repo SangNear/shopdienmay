@@ -9,28 +9,35 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
-const ImageStock = () => {
+import maygiat from "../public/assets/stock/maygiat1.jpg"
+import Image from 'next/image'
+import { ImagesStock } from '@/constants'
+
+interface ImageStockProps {
+    title: String
+    imageStock: ImagesStock[]
+}
+
+const ImageStock = ({ title, imageStock }: ImageStockProps) => {
     const plugin = React.useRef(
         Autoplay({ delay: 500, })
     )
     return (
-        <div className='flex flex-col gap-2  my-3'>
-            <h3 className='w-[50%] p-2 uppercase bg-white border  text-[#fe0000] text-center font-bold'>Kho máy giặt</h3>
+        <div className='flex flex-col justify-center items-center gap-2  my-3 w-full'>
+            <h3 className='w-[50%] p-2 uppercase bg-white border  text-[#fe0000] text-center font-bold'>Kho {title}</h3>
             <Carousel
                 plugins={[
                     Autoplay({
                         delay: 2000,
                     }),
                 ]}
-                className="w-full max-w-xs">
+                className="w-full">
                 <CarouselContent>
-                    {Array.from({ length: 5 }).map((_, index) => (
+                    {imageStock.map((item, index) => (
                         <CarouselItem key={index} className='cursor-grab' >
                             <div className="p-1">
-                                <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                                        <span className="text-4xl font-semibold">{index + 1}</span>
-                                    </CardContent>
+                                <Card className='w-full'>
+                                    <Image src={item.src} alt='img' className='max-h-96 min-h-96' />
                                 </Card>
                             </div>
                         </CarouselItem>

@@ -12,6 +12,19 @@ import banner1 from "../public/assets/banner/banner4.jpeg";
 import banner2 from "../public/assets/banner/banner2.jpg";
 import banner3 from "../public/assets/banner/banner3.jpeg";
 
+import maygiat from "../public/assets/stock/maygiat1.jpg"
+import maygiat2 from "../public/assets/stock/maygiat2.jpg"
+import maygiat3 from "../public/assets/stock/maygiat3.jpg"
+import maygiat4 from "../public/assets/stock/maygiat4.jpg"
+import maylanh from "../public/assets/stock/maylanh1.jpg"
+import maylanh2 from "../public/assets/stock/maylanh2.jpg"
+import maylanh3 from "../public/assets/stock/maylanh3.jpg"
+import tv from "../public/assets/stock/tv1.jpg"
+import tv2 from "../public/assets/stock/tv2.jpg"
+import tv3 from "../public/assets/stock/tv3.jpg"
+import tulanh from "../public/assets/stock/tulanh1.jpg"
+import tulanh2 from "../public/assets/stock/tulanh2.webp"
+import { StaticImageData } from "next/image";
 export interface MenuNavLink {
   name: string;
   route: string;
@@ -20,6 +33,11 @@ export interface MenuNavLink {
     subMenuTitle: string; // Use 'string' (lowercase) for primitive type
     subMenuRoute: string[]; // Use 'string[]' to denote an array of strings
   }>;
+}
+
+export interface ImagesStock {
+  name: String,
+  src: StaticImageData
 }
 
 export const menuNavLinks: MenuNavLink[] = [
@@ -112,6 +130,60 @@ export const imagesCarousel = [
   },
 ];
 
-export const productSlider = [
+export const maygiatImageStock = [
+  {
+    name: "maygiat",
+    src: maygiat
+  },
+  {
+    name: "maygiat2",
+    src: maygiat2
+  },
+  {
+    name: "maygiat3",
+    src: maygiat3
+  },
+  {
+    name: "maygiat4",
+    src: maygiat4
+  },
+]
+export const maylanhImageStock = [
+  {
+    name: "maylanh",
+    src: maylanh
+  },
+  {
+    name: "maylanh2",
+    src: maylanh2
+  },
+  {
+    name: "maylanh3",
+    src: maylanh3
+  },
   
+]
+export const tulanhImageStock = [
+  {
+    name: "tulanh",
+    src: tulanh
+  },
+  {
+    name: "tulanh2",
+    src: tulanh2
+  },
+]
+export const tiviImageStock = [
+  {
+    name: "tivi",
+    src: tv
+  },
+  {
+    name: "tivi2",
+    src: tv2
+  },
+  {
+    name: "tivi3",
+    src: tv3
+  },
 ]
