@@ -43,22 +43,22 @@ export interface ImagesStock {
 export const menuNavLinks: MenuNavLink[] = [
   {
     name: "TV",
-    route: "/tv",
+    route: "tivi",
     icon: TvIcon, // Use the component reference directly
     subMenu: [
       {
         subMenuTitle: "Thương hiệu",
-        subMenuRoute: ["Samsung", "Sony", "LG", "TCL", "TOSHIBA", "Casper"],
+        subMenuRoute: ["Tivi Samsung", "Tivi Sony", "Tivi LG", "Tivi TCL", "Tivi Toshiba", "Tivi Casper"],
       },
       {
         subMenuTitle: "Màn hình",
-        subMenuRoute: ["14in", "15in", "17in", "24in", "27in", "34in"],
+        subMenuRoute: ["Tivi 14in", "Tivi 15in", "Tivi 17in", "Tivi 24in", "Tivi 27in", "Tivi 34in"],
       },
     ],
   },
   {
     name: "Loa",
-    route: "/loa",
+    route: "loa",
     icon: SpeakerIcon,
     subMenu: [
       {
@@ -68,8 +68,9 @@ export const menuNavLinks: MenuNavLink[] = [
           "Micro",
           "Amly",
           "Dàn âm Thanh",
-          "TOSHIBA",
-          "Casper",
+          "Loa thanh",
+          "Loa kéo",
+          "Loa blutooth",
         ],
       },
       {
@@ -80,37 +81,55 @@ export const menuNavLinks: MenuNavLink[] = [
   },
   {
     name: "Dàn karaoke",
-    route: "/dan-karaoke",
+    route: "dan-karaoke",
     icon: SettingsVoiceIcon,
   },
   {
     name: "Tủ lạnh",
-    route: "/tu-lanh",
+    route: "tu-lanh",
     icon: KitchenIcon,
+    subMenu: [
+      {
+        subMenuTitle: "Thương hiệu",
+        subMenuRoute: [
+          "Tủ lạnh Samsung", 
+          "Tủ lạnh Panasonic", 
+          "Tủ lạnh Aqua", 
+          "Tủ lạnh Toshiba", 
+          "Tủ lạnh LG",
+          "Tủ lạnh Hitachi",
+          "Tủ lạnh Mitsubishi"
+        ]
+      },
+      {
+        subMenuTitle: "Loại Tủ lạnh",
+        subMenuRoute: ["14in", "15in", "17in", "24in", "27in", "34in"],
+      },
+    ],
   },
   {
     name: "Tủ đông",
-    route: "/tu-dong",
+    route: "tu-dong",
     icon: KitchenOutlinedIcon,
   },
   {
     name: "Tủ mát",
-    route: "/tu-mat",
+    route: "tu-mat",
     icon: KitchenOutlinedIcon,
   },
   {
     name: "Máy giặt",
-    route: "/may-giat",
+    route: "may-giat",
     icon: LocalLaundryServiceOutlinedIcon,
   },
   {
     name: "Máy quạt",
-    route: "/may-quat",
+    route: "may-quat",
     icon: WindPowerIcon,
   },
   {
     name: "Máy lạnh",
-    route: "/may-lanh",
+    route: "may-lanh",
     icon: AcUnitIcon,
   },
 ];
@@ -161,7 +180,7 @@ export const maylanhImageStock = [
     name: "maylanh3",
     src: maylanh3
   },
-  
+
 ]
 export const tulanhImageStock = [
   {
