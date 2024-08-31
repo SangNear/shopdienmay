@@ -54,6 +54,7 @@ export const menuNavLinks: MenuNavLink[] = [
         subMenuTitle: "Màn hình",
         subMenuRoute: ["Tivi 14in", "Tivi 15in", "Tivi 17in", "Tivi 24in", "Tivi 27in", "Tivi 34in"],
       },
+      
     ],
   },
   {

@@ -31,3 +31,28 @@ export const toslug = (str: String) => {
   // return
   return str;
 }
+
+export const convertSlugToString = (slug: string) => {
+  switch (slug) {
+    case 'tivi':
+      return 'Tivi';
+    case 'loa':
+      return 'Loa';
+    case 'dan-karaoke':
+      return 'Dàn karaoke';
+    case 'tu-lanh':
+      return 'Tủ lạnh';
+    case 'tu-dong':
+      return 'Tủ đông';
+    case 'tu-mat':
+      return 'Tủ mát';
+    case 'may-giat':
+      return 'Máy giặt';
+    case 'may-quat':
+      return 'Máy quạt';
+    case 'may-lanh':
+      return 'Máy lạnh';
+    default:
+      return slug; // Return the original slug or a default string
+  }
+};
