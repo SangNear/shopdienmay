@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCart from "./ProductCart";
 import Link from "next/link";
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 interface ListProductProps {
   title: String;

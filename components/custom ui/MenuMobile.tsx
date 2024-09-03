@@ -14,7 +14,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { menuNavLinks } from "@/constants";
 import Link from "next/link";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
+import { toslug } from "@/lib/utils";
+import { UrlObject } from "url";
 const MenuMobile = () => {
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   return (
@@ -38,13 +40,14 @@ const MenuMobile = () => {
             <List>
               {menuNavLinks.map((item, index) => {
                 const IconComponent = item.icon;
+                const route = toslug(item.name)
                 return (
                   <ListItem key={index} disablePadding>
                     <ListItemButton>
                       <ListItemIcon>
                         <IconComponent />
                       </ListItemIcon>
-                      <Link href={`${item.name}`} className="">
+                      <Link href={`/danh-sach-san-pham/${route as unknown as UrlObject}`} className="">
                         <ListItemText>{item.name}</ListItemText>
                       </Link>
                     </ListItemButton>

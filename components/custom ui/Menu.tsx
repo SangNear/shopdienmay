@@ -17,7 +17,7 @@ const Menu = () => {
   // Effect to add a scroll event listener
   useEffect(() => {
     const handleScroll = () => {
-      const topMenuHeight = 150; // Adjust this based on your top menu's height
+      const topMenuHeight = 145; // Adjust this based on your top menu's height
       const scrollPosition = window.scrollY;
       setIsTopMenuVisible(scrollPosition < topMenuHeight);
     };

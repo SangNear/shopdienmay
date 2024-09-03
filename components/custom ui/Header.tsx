@@ -13,7 +13,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Link from "next/link";
 import ListItemText from "@mui/material/ListItemText";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
+import { toslug } from "@/lib/utils";
+import { UrlObject } from "url";
 
 const Header = () => {
   const [value, setValue] = useState("");
@@ -21,7 +23,7 @@ const Header = () => {
   return (
     <div className="max-md:px-2 lg:px-20 py-6 px-2 w-full  flex justify-between max-md:flex-col gap-4 max-lg:bg-[#fe0000]">
       <div className="flex justify-between items-center w-full">
-        <Link href="/" >
+        <Link href="/">
           <h1 className="font-bold max-lg:text-white text-[#fe0000] text-2xl max-sm:text-xl  ">
             Shop dien may
           </h1>
@@ -49,13 +51,19 @@ const Header = () => {
               <List>
                 {menuNavLinks.map((item, index) => {
                   const IconComponent = item.icon;
+                  const route = toslug(item.name);
                   return (
                     <ListItem key={index} disablePadding>
                       <ListItemButton>
                         <ListItemIcon>
                           <IconComponent />
                         </ListItemIcon>
-                        <Link href={`${item.name}`} className="">
+                        <Link
+                          href={`/danh-sach-san-pham/${
+                            route as unknown as UrlObject
+                          }`}
+                          className=""
+                        >
                           <ListItemText>{item.name}</ListItemText>
                         </Link>
                       </ListItemButton>

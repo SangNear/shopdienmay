@@ -1,13 +1,13 @@
 import React from "react";
 import Service from "./Service";
 import Cusregis from "./Cusregis";
-import MenuFooter from "./ui/MenuFooter";
+import MenuFooter from "../ui/MenuFooter";
 import MenuFooter2 from "./MenuFooter2";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Image from "next/image";
-import cerr from "../public/assets/certifacation.jpg"
+import cerr from "../../public/assets/certifacation.jpg"
 const Footer = () => {
   return (
     <div className="w-full h-auto flex flex-col pb-16">
