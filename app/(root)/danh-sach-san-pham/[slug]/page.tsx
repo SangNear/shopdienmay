@@ -92,8 +92,8 @@ const DanhSachSanPham = async ({ params }: { params: { slug: string } }) => {
       {/* list */}
 
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
-        {Array.from({ length: 30 }).map(() => (
-          <ProductCart />
+        {Array.from({ length: 30 }).map((i, inde) => (
+          <ProductCart key={inde} />
         ))}
       </div>
       <SystemStock />
