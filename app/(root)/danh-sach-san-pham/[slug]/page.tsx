@@ -1,3 +1,4 @@
+"use client"
 import ImageStock from "@/components/custom ui/ImageStock";
 import ProductCart from "@/components/custom ui/ProductCart";
 import SystemStock from "@/components/custom ui/SystemStock";
@@ -7,6 +8,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import { ToggleGroup } from "@/components/ui/toggle-group";
 import {
@@ -22,13 +25,23 @@ import { convertSlugToString, toslug } from "@/lib/utils";
 import { ToggleGroupItem } from "@radix-ui/react-toggle-group";
 import Link from "next/link";
 
-import React from "react";
+import React, { useState } from "react";
 import { UrlObject } from "url";
-
-const DanhSachSanPham = async ({ params }: { params: { slug: string } }) => {
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
+const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const menuTitle = convertSlugToString(slug);
-
+  const [selectedValue, setSelectedValue] = useState("default");
+  console.log("value radio", selectedValue);
+  const [page, setPage] = useState(1)
   // const listProduct = await getAllProductBySlug(slug)
   return (
     <div className="lg:px-20 max-md:px-2 w-full">
@@ -64,6 +77,21 @@ const DanhSachSanPham = async ({ params }: { params: { slug: string } }) => {
         <div className="flex flex-col gap-2 bg-white w-full shadow-xl rounded-xl p-4 max-sm:p-2">
           <div className="flex gap-3">
             <span className="font-bold">Xếp theo:</span>
+            <RadioGroup className="flex gap-4" value={selectedValue}
+              onValueChange={setSelectedValue}>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="default" id="r1" className="text-[#fe0000]" />
+                <Label className="text-md" htmlFor="r1">Mới nhất</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="comfortable" id="r2" className="text-[#fe0000]" />
+                <Label className="text-md" htmlFor="r2">Giá từ thấp đến cao</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="compact" id="r3" className="text-[#fe0000]" />
+                <Label className="text-md" htmlFor="r3">Giá từ cao đến thấp</Label>
+              </div>
+            </RadioGroup>
           </div>
           <div className="flex gap-3 items-center flex-wrap">
             <span className="font-bold">Thương hiệu: </span>
@@ -75,9 +103,8 @@ const DanhSachSanPham = async ({ params }: { params: { slug: string } }) => {
                 <Link
                   href={`/danh-sach-san-pham/${route as unknown as UrlObject}`}
                   key={item}
-                  className={`py-2 px-4 border rounded-lg max-sm:text-sm ${
-                    active ? "bg-[#fe0000] text-white" : ""
-                  } `}
+                  className={`py-2 px-4 border rounded-lg max-sm:text-sm ${active ? "bg-[#fe0000] text-white" : ""
+                    } `}
                 >
                   {item}
                 </Link>
@@ -93,9 +120,35 @@ const DanhSachSanPham = async ({ params }: { params: { slug: string } }) => {
 
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
         {Array.from({ length: 30 }).map((i, inde) => (
-          <ProductCart key={inde} />
+          <div key={inde}>
+            <ProductCart />
+          </div>
+
         ))}
       </div>
+      <p>Trang hiện tại {page}</p>
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem className="cursor-pointer" onClick={() => setPage(page - 1)}>
+            <PaginationPrevious  />
+          </PaginationItem>
+          <PaginationItem onClick={() => setPage(1)} className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border">
+            1
+          </PaginationItem>
+          <PaginationItem onClick={() => setPage(2)} className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border">
+            2
+          </PaginationItem>
+          <PaginationItem onClick={() => setPage(3)} className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border">
+            3
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem className="cursor-pointer" onClick={() => setPage(page + 1)}>
+            <PaginationNext  />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
       <SystemStock />
     </div>
   );
