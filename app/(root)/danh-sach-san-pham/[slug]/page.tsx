@@ -42,6 +42,7 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
   const [selectedValue, setSelectedValue] = useState("default");
   console.log("value radio", selectedValue);
   const [page, setPage] = useState(1)
+  const totalPage = 4
   // const listProduct = await getAllProductBySlug(slug)
   return (
     <div className="lg:px-20 max-md:px-2 w-full">
@@ -120,35 +121,31 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
 
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
         {Array.from({ length: 30 }).map((i, inde) => (
-          <div key={inde}>
+          <Link href="/san-pham/Smart Tivi Samsung 4K Crystal UHD 70 inch UA70DU7000" key={inde}>
             <ProductCart />
-          </div>
+          </Link>
 
         ))}
       </div>
-      <p>Trang hiện tại {page}</p>
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem className="cursor-pointer" onClick={() => setPage(page - 1)}>
-            <PaginationPrevious  />
-          </PaginationItem>
-          <PaginationItem onClick={() => setPage(1)} className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border">
-            1
-          </PaginationItem>
-          <PaginationItem onClick={() => setPage(2)} className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border">
-            2
-          </PaginationItem>
-          <PaginationItem onClick={() => setPage(3)} className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border">
-            3
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem className="cursor-pointer" onClick={() => setPage(page + 1)}>
-            <PaginationNext  />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+      <div className="flex flex-col justify-end items-baseline w-full">
+        <p>Trang hiện tại {page}</p>
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem className="cursor-pointer" onClick={() => setPage(page - 1)}>
+              <PaginationPrevious />
+            </PaginationItem>
+            {Array.from({ length: totalPage }).map((_, index) => (
+              <PaginationItem onClick={() => setPage(index + 1)} className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border">
+                {index + 1}
+              </PaginationItem>
+            ))}
+            <PaginationItem className="cursor-pointer" onClick={() => setPage(page + 1)}>
+              <PaginationNext />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      </div>
+
       <SystemStock />
     </div>
   );
