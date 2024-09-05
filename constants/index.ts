@@ -6,7 +6,6 @@ import KitchenOutlinedIcon from "@mui/icons-material/KitchenOutlined";
 import LocalLaundryServiceOutlinedIcon from "@mui/icons-material/LocalLaundryServiceOutlined";
 import WindPowerIcon from "@mui/icons-material/WindPower";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
-import Tv from "@mui/icons-material/Tv";
 
 import banner1 from "../public/assets/banner/banner4.jpeg";
 import banner2 from "../public/assets/banner/banner2.jpg";
@@ -25,6 +24,11 @@ import tv3 from "../public/assets/stock/tv3.jpg";
 import tulanh from "../public/assets/stock/tulanh1.jpg";
 import tulanh2 from "../public/assets/stock/tulanh2.webp";
 import { StaticImageData } from "next/image";
+
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
+import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
+import EventNoteOutlinedIcon from '@mui/icons-material/EventNoteOutlined';
 export interface MenuNavLink {
   name: string;
   route: string;
@@ -35,10 +39,35 @@ export interface MenuNavLink {
   }>;
 }
 
+
+
 export interface ImagesStock {
   name: String;
   src: StaticImageData;
 }
+
+export const menuLinksAdmin = [
+  {
+    name: "Thống kê",
+    route: "/quantri/thongke",
+    icon: DashboardOutlinedIcon
+  },
+  {
+    name: "Danh mục",
+    route: "/quantri/danhmuc",
+    icon: CategoryOutlinedIcon
+  },
+  {
+    name: "Sản phẩm",
+    route: "/quantri/sanpham",
+    icon: ProductionQuantityLimitsOutlinedIcon
+  },
+  {
+    name: "Đơn hàng",
+    route: "/quantri/donhang",
+    icon: EventNoteOutlinedIcon
+  },
+]
 
 export const menuBrandFilter = [
   "Tivi Samsung",
