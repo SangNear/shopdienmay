@@ -1,9 +1,8 @@
-import React from 'react'
+import CollectionForm from "@/components/collections/CollectionForm";
+import React from "react";
 
 const page = () => {
-  return (
-    <div>Thêm danh mục</div>
-  )
-}
+  return <CollectionForm />;
+};
 
-export default page
+export default page;
