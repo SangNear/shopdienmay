@@ -16,38 +16,58 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 const formSchema = z.object({
   name: z.string().min(2).max(50),
-  image: z.array(z.any()),
 });
 
 const CollectionForm = () => {
-  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
-  console.log("image preview: ", imagePreviews);
-  
+  // const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  // console.log("image preview: ", imagePreviews);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      image: [],
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
-  }
-  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files);
-      form.setValue("image", filesArray); // Cập nhật giá trị form với các file đã chọn
-
-      // Tạo URL tạm thời để hiển thị preview của các ảnh
-      const previewUrls = filesArray.map((file) => URL.createObjectURL(file));
-      setImagePreviews(previewUrls); // Cập nhật state với URL tạm thời
+    try {
+      const res = await fetch("http://localhost:1999/api/v1/category", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Add Content-Type header
+        },
+        body: JSON.stringify(values),
+      });
+      if (res.ok) {
+        setLoading(true);
+        toast.success("Thêm danh mục mới thành công!");
+        router.push("/quantri/danhmuc");
+      } else {
+        setLoading(true);
+        toast.error("Thêm danh mục thất bại! Thử lại");
+      }
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
+  // function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+  //   if (e.target.files) {
+  //     const filesArray = Array.from(e.target.files);
+  //     form.setValue("image", filesArray); // Cập nhật giá trị form với các file đã chọn
+
+  //     // Tạo URL tạm thời để hiển thị preview của các ảnh
+  //     const previewUrls = filesArray.map((file) => URL.createObjectURL(file));
+  //     setImagePreviews(previewUrls); // Cập nhật state với URL tạm thời
+  //   }
+  // }
 
   return (
     <div className="px-10 py-5">
@@ -77,7 +97,7 @@ const CollectionForm = () => {
               </FormItem>
             )}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
             name="image"
             render={() => (
@@ -94,7 +114,7 @@ const CollectionForm = () => {
             )}
           />
           {/* Hiển thị preview của các ảnh đã chọn */}
-          <div className="grid grid-cols-3 gap-4 mt-4">
+          {/* <div className="grid grid-cols-3 gap-4 mt-4">
             {imagePreviews.map((url, index) => (
               <div key={index} className="border p-2">
                 <img
@@ -104,7 +124,7 @@ const CollectionForm = () => {
                 />
               </div>
             ))}
-          </div>
+          </div> */}
           <Button type="submit">Submit</Button>
         </form>
       </Form>
