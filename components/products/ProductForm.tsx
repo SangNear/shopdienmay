@@ -27,7 +27,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
+import Tiptap from "../custom ui/Tiptap";
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   original: z.string(),
@@ -36,7 +37,7 @@ const formSchema = z.object({
   //   color: z.string().min(2).max(20),
   //   guarantee: z.string().min(2).max(20),
   price: z.coerce.number().min(0.1),
-  description: z.string().min(2).max(50),
+  description: z.string().min(2),
   categories: string(),
   images: z.array(z.any()).optional(),
   quantity: z.coerce.number().min(1),
@@ -46,7 +47,7 @@ const formSchema = z.object({
 const ProductForm = () => {
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
-  const [collection, setCollection] = useState<CollectionsTypes[]>([])
+  const [collection, setCollection] = useState<CollectionsTypes[]>([]);
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,46 +70,41 @@ const ProductForm = () => {
 
   const getCollection = async () => {
     try {
-      const res = await fetch("http://localhost:1999/api/v1/category", {
-        method: "GET"
-      })
-      const data = await res.json()
-      setCollection(data)
+      const res = await fetch("https://shopdienmay-api.vercel.app/api/v1/category", {
+        method: "GET",
+      });
+      const data = await res.json();
+      setCollection(data);
     } catch (error) {
       console.log(error);
-
     }
-  }
+  };
   useEffect(() => {
-    getCollection()
-  }, [])
-
-
-
+    getCollection();
+  }, []);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log("data form:", values);
-    
+
     const formData = new FormData();
 
     // Append text fields to the FormData
-    formData.append('name', values.name);
-    formData.append('original', values.original);
-    formData.append('description', values.description);
-    formData.append('price', values.price.toString());
-    formData.append('categories', values.categories);
-    formData.append('quantity', values.quantity.toString());
+    formData.append("name", values.name);
+    formData.append("original", values.original);
+    formData.append("description", values.description);
+    formData.append("price", values.price.toString());
+    formData.append("categories", values.categories);
+    formData.append("quantity", values.quantity.toString());
 
     // Append each image file and its metadata to FormData
-    if(values.images) {
+    if (values.images) {
       values.images.forEach((file) => {
-        formData.append('images', file, file.name); // The third argument (file.name) will set the original filename
+        formData.append("images", file, file.name); // The third argument (file.name) will set the original filename
       });
     }
 
-
     try {
-      const res = await fetch("http://localhost:1999/api/v1/product", {
+      const res = await fetch("https://shopdienmay-api.vercel.app/api/v1/product", {
         method: "POST",
         body: formData, // Send FormData with files and metadata
       });
@@ -126,7 +122,7 @@ const ProductForm = () => {
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files);
-      form.setValue('images', filesArray); // Save files in form state
+      form.setValue("images", filesArray); // Save files in form state
       const previewUrls = filesArray.map((file) => URL.createObjectURL(file));
       setImagePreviews(previewUrls); // Set previews for UI
     }
@@ -165,7 +161,7 @@ const ProductForm = () => {
               <FormItem>
                 <FormLabel>Mô tả sản phẩm</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="Mô tả..." {...field} rows={5} />
+                  <Tiptap  value={field.value} onChange={field.onChange} />
                 </FormControl>
 
                 <FormMessage />
@@ -189,8 +185,10 @@ const ProductForm = () => {
                       <SelectGroup>
                         {collection.map((item) => {
                           return (
-                            <SelectItem value={item._id} key={item._id}>{item.name}</SelectItem>
-                          )
+                            <SelectItem value={item._id} key={item._id}>
+                              {item.name}
+                            </SelectItem>
+                          );
                         })}
                       </SelectGroup>
                     </SelectContent>
@@ -231,13 +229,15 @@ const ProductForm = () => {
           <div className="flex justify-between items-center max-md: flex-wrap w-full">
             <FormField
               control={form.control}
-
               name="quantity"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Số lượng</FormLabel>
                   <FormControl>
-                    <Input placeholder="Nhập vào số lượng sản phẩm." {...field} />
+                    <Input
+                      placeholder="Nhập vào số lượng sản phẩm."
+                      {...field}
+                    />
                   </FormControl>
 
                   <FormMessage />
@@ -287,9 +287,7 @@ const ProductForm = () => {
             />
           </div>
 
-          <div className="flex justify-between items-center">
-
-          </div>
+          <div className="flex justify-between items-center"></div>
           <Button type="submit">Submit</Button>
         </form>
       </Form>

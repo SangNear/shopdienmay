@@ -13,7 +13,7 @@ const page = () => {
 
   const getProducts = async () => {
     try {
-      const res = await fetch("http://localhost:1999/api/v1/product", {
+      const res = await fetch("https://shopdienmay-api.vercel.app/api/v1/product", {
         method: "GET",
       });
       const data = await res.json();

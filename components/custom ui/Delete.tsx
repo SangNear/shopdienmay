@@ -26,7 +26,7 @@ const Delete = ({ id, item }: DeleteProps) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:1999/api/v1/${itemTypeApi}/${id}`, {
+      const res = await fetch(`https://shopdienmay-api.vercel.app/api/v1/${itemTypeApi}/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
