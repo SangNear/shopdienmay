@@ -7,7 +7,7 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [loading, setLoading] = useState(true);
   const [collection, setCollection] = useState([]);
 
@@ -51,4 +51,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

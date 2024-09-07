@@ -211,9 +211,9 @@ const Tiptap = ({ value, onChange }: TiptapProps) => {
             />
             <circle r="6" cx="10" cy="10" fill="white" />
           </svg>
-          {editor.storage.characterCount.characters()} / {limit} characters
+          {editor.storage.characterCount.characters()} / {limit} ký tự
           <br />
-          {editor.storage.characterCount.words()} words
+          {editor.storage.characterCount.words()} từ
         </div>
       </div>
     </div>

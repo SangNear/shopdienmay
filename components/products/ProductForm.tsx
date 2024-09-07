@@ -70,9 +70,12 @@ const ProductForm = () => {
 
   const getCollection = async () => {
     try {
-      const res = await fetch("https://shopdienmay-api.vercel.app/api/v1/category", {
-        method: "GET",
-      });
+      const res = await fetch(
+        "https://shopdienmay-api.vercel.app/api/v1/category",
+        {
+          method: "GET",
+        }
+      );
       const data = await res.json();
       setCollection(data);
     } catch (error) {
@@ -104,10 +107,13 @@ const ProductForm = () => {
     }
 
     try {
-      const res = await fetch("https://shopdienmay-api.vercel.app/api/v1/product", {
-        method: "POST",
-        body: formData, // Send FormData with files and metadata
-      });
+      const res = await fetch(
+        "https://shopdienmay-api.vercel.app/api/v1/product",
+        {
+          method: "POST",
+          body: formData, // Send FormData with files and metadata
+        }
+      );
 
       if (res.ok) {
         toast.success("Product added successfully!");
@@ -154,20 +160,7 @@ const ProductForm = () => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="description"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Mô tả sản phẩm</FormLabel>
-                <FormControl>
-                  <Tiptap  value={field.value} onChange={field.onChange} />
-                </FormControl>
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <FormField
             control={form.control}
             name="categories"
@@ -286,6 +279,20 @@ const ProductForm = () => {
               )}
             />
           </div>
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Mô tả sản phẩm</FormLabel>
+                <FormControl>
+                  <Tiptap value={field.value} onChange={field.onChange} />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <div className="flex justify-between items-center"></div>
           <Button type="submit">Submit</Button>

@@ -1,8 +1,8 @@
 import CollectionForm from "@/components/collections/CollectionForm";
 import React from "react";
 
-const page = () => {
+const Page = () => {
   return <CollectionForm />;
 };
 
-export default page;
+export default Page;
