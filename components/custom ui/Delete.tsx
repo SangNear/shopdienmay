@@ -22,10 +22,11 @@ interface DeleteProps {
 const Delete = ({ id, item }: DeleteProps) => {
   const [loading, setLoading] = useState(false);
   const itemType = item === "products" ? "sanpham" : "danhmuc";
+  const itemTypeApi = item === "products" ? "product" : "category";
   const onDelete = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:1999/api/v1/category/${id}`, {
+      const res = await fetch(`http://localhost:1999/api/v1/${itemTypeApi}/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -38,15 +39,15 @@ const Delete = ({ id, item }: DeleteProps) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="bg-red-500 text-white">
+        <Button className="bg-[#fe0000] text-white">
           <Trash className="h-4 w-4" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="bg-white">
         <AlertDialogHeader>
-          <AlertDialogTitle>Bạn có chắc chắn muốn xóa danh mục này không?</AlertDialogTitle>
+          <AlertDialogTitle>Bạn có chắc chắn muốn xóa {item === "products"? "sản phẩm" : "danh mục"} này không?</AlertDialogTitle>
           <AlertDialogDescription>
-            Sau khi xóa  danh mục này thì toàn bộ các sản phẩm thuộc danh mục này sẽ được cập nhật lại
+            Sau khi xóa  {item === "products"? "sản phẩm" : "danh mục"} này sẽ không thể khôi phục
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

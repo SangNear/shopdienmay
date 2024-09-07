@@ -5,7 +5,7 @@ export const columns: ColumnDef<ProductTypes>[] = [
     accessorKey: "name",
     header: () => <p style={{ textAlign: "center" }}>Tên sản phẩm</p>,
     cell: ({ row }) => (
-      <p style={{ textAlign: "center" }}>{row.original.name}</p>
+      <p style={{ textAlign: "left" }}>{row.original.name}</p>
     ),
   },
   {
@@ -14,7 +14,7 @@ export const columns: ColumnDef<ProductTypes>[] = [
     cell: ({ row }) => (
       <p style={{ textAlign: "center" }}>
         {typeof row.original.categories === "object"
-          ? row.original.categories.name
+          ? row.original.categories?.name
           : row.original.categories}
       </p>
     ),
@@ -32,15 +32,6 @@ export const columns: ColumnDef<ProductTypes>[] = [
     header: () => <p style={{ textAlign: "center" }}>Giá cả</p>,
     cell: ({ row }) => (
       <p style={{ textAlign: "center" }}>{row.original.price}</p>
-    ),
-  },
-  {
-    accessorKey: "quantity",
-    header: () => (
-      <p style={{ textAlign: "center" }}>Số lương sản phẩm trong kho</p>
-    ),
-    cell: ({ row }) => (
-      <p style={{ textAlign: "center" }}>{row.original.quantity}</p>
     ),
   },
   {
