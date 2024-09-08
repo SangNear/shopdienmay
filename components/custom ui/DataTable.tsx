@@ -103,7 +103,7 @@ export function DataTable<TData, TValue>({
                   className="h-24 text-center"
                 >
                   {/* <CircularProgress color="error" /> */}
-                  No Result...
+                  <CircularProgress/>
                 </TableCell>
               </TableRow>
             )}

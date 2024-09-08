@@ -93,10 +93,10 @@ const Header = () => {
               Tra cứu đơn hàng
             </span>
           </div>
-          <div className="flex  text-white">
+          {/* <div className="flex  text-white">
             <AddShoppingCartIcon className="text-[#fe0000]" />
             <span className="whitespace-nowrap text-black">Tài khoản</span>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className=" relative flex items-center md:hidden w-full">

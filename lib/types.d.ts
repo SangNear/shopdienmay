@@ -8,7 +8,10 @@ type ProductTypes = {
     _id: string,
     name: string,
     original: string,
-    price: string,
+    price: number,
     categories: CollectionsTypes,
-    quantity: string
+    quantity: string,
+    description: string,
+    brands: string,
+    images: string | StaticImport
 }
