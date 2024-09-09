@@ -56,11 +56,11 @@ const ChiTietSanPham = () => {
             <>
               <Image
                 id="image-show"
-                src={`${process.env.NEXT_PUBLIC_URL_LOCAL || process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
+                src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
                 // src={process.env.NEXT_PUBLIC_URL_LOCAL + `/` +product?.images[imageSlider]}
                 alt="image-show"
-                width={900}
-                height={400}
+                width={100}
+                height={200}
                 className="w-full h-[400px] object-contain"
               />
               <Carousel
