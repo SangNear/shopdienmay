@@ -46,7 +46,7 @@ const Tiptap = ({ value, onChange }: TiptapProps) => {
     content: value,
     editorProps: {
       attributes: {
-        class: "rounded-md border min-h-[150px] border-input bg-back ",
+        class: "rounded-md  min-h-[150px]  bg-back p-2 outline-none ",
       },
     },
     onUpdate({ editor }) {

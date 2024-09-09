@@ -16,7 +16,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { Separator } from "../ui/separator";
 import { toslug } from "@/lib/utils";
 import { UrlObject } from "url";
-
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 const Header = () => {
   const [value, setValue] = useState("");
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
@@ -88,7 +88,7 @@ const Header = () => {
             <span className="whitespace-nowrap text-black">Giỏ hàng</span>
           </div>
           <div className="flex  text-white">
-            <AddShoppingCartIcon className="text-[#fe0000]" />
+            <ManageSearchIcon className="text-[#fe0000]" />
             <span className="whitespace-nowrap text-black">
               Tra cứu đơn hàng
             </span>

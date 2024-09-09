@@ -4,11 +4,15 @@ import Image from "next/image";
 import CheckIcon from "@mui/icons-material/Check";
 
 import tv2 from "../../public/assets/products/tv2.jpg";
+import Link from "next/link";
 
 
 const ProductCart = () => {
   return (
-    <div className="w-[165px] lg:w-[220px] h-[315px] rounded-xl shadow-xl bg-white flex flex-col justify-between">
+
+    <Link
+      href="/san-pham/Smart-Tivi-Samsung-4K-Crystal-UHD-70-inch-UA70DU7000"
+      className="w-[165px] lg:w-[220px] h-[315px] rounded-xl shadow-xl bg-white flex flex-col justify-between">
       <div className="p-2 w-full ">
         <Image
           src={tv2}
@@ -28,7 +32,7 @@ const ProductCart = () => {
           <span className="text-xs text-[#78c63b]">Còn hàng</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

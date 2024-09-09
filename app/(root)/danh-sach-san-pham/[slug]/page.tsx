@@ -133,12 +133,7 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
 
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
         {Array.from({ length: 30 }).map((i, inde) => (
-          <Link
-            href="/san-pham/Smart-Tivi-Samsung-4K-Crystal-UHD-70-inch-UA70DU7000"
-            key={inde}
-          >
             <ProductCart />
-          </Link>
         ))}
       </div>
       <div className="flex flex-col justify-end items-baseline w-full">

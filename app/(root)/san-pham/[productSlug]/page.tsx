@@ -17,6 +17,7 @@ import Typography from "@mui/material/Typography";
 import { Receipt, ShoppingCart } from "lucide-react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { Key, useEffect, useState } from "react";
 // Import Skeleton from Shadcn
@@ -39,7 +40,7 @@ const ChiTietSanPham = () => {
         const data = await res.json();
         setProduct(data);
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   useEffect(() => {
@@ -47,10 +48,10 @@ const ChiTietSanPham = () => {
   }, []);
 
   return (
-    
-    <div className="lg:px-20 max-md:px-2 w-full my-5">
-      <div className="w-full flex justify-between h-full max-md:flex-col gap-5 bg-white">
-        <div className="w-full">
+
+    <div className="lg:px-20 max-md:px-2  my-5">
+      <div className=" flex justify-between h-full max-md:flex-col gap-5 bg-white">
+        <div className="">
           {product ? (
             <>
               <Image
@@ -83,9 +84,8 @@ const ChiTietSanPham = () => {
                           alt="images"
                           width={100}
                           height={50}
-                          className={`cursor-pointer object-contain ${
-                            index === imageSlider ? "" : "opacity-45"
-                          }`}
+                          className={`cursor-pointer object-contain ${index === imageSlider ? "" : "opacity-45"
+                            }`}
                           onClick={() => setImageSlider(index)}
                         />
                       </CarouselItem>
@@ -135,13 +135,16 @@ const ChiTietSanPham = () => {
                 <span className="font-bold text-green-600">Còn hàng</span>
               </p>
               <div className="flex items-center gap-4 w-full">
-                <Button className="w-full bg-[#fe0000] text-white flex gap-3 items-center">
+                <Button className=" bg-[#fe0000] text-white flex gap-3 items-center">
                   <ShoppingCart />
                   Thêm vào giỏ hàng
                 </Button>
-                <Button className="w-full bg-[#fe0000] text-white flex gap-3 items-center">
-                  <Receipt /> Mua ngay
-                </Button>
+                <Link href="/giohang" className="">
+                  <Button className="w-full bg-[#fe0000] text-white flex gap-3 items-center">
+                    <Receipt /> Mua ngay
+                  </Button>
+                </Link>
+
               </div>
             </>
           ) : (

@@ -59,6 +59,7 @@ export default function Home() {
           </h2>
           <Separator />
           <div className="mt-2 flex flex-wrap justify-evenly gap-2 m-auto items-center  pb-5 ">
+            
             <ProductCart />
             <ProductCart />
             <ProductCart />
