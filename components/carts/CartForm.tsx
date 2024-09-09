@@ -56,9 +56,9 @@ const CartForm = () => {
 
 
     return (
-        <div className="px-10 py-5">
+        <div className="lg:px-10 py-5">
             <div className="flex justify-between items-center">
-                <h2 className="text-xl leading-[100%] font-bold text-[#fe0000] uppercase">Thông tin thanh toán</h2>
+                <h2 className="lg:text-xl text-base leading-[100%] font-bold text-[#fe0000] uppercase">Thông tin thanh toán</h2>
             </div>
             <Separator className=" my-4" />
 

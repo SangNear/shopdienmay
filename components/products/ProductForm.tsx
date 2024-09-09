@@ -90,6 +90,9 @@ const ProductForm = () => {
     console.log("data form:", values);
   
     const formData = new FormData();
+
+    console.log("form datra" ,formData);
+    
   
     // Append text fields to the FormData
     formData.append("name", values.name);

@@ -31,7 +31,7 @@ const ChiTietSanPham = () => {
   const getDetailProduct = async () => {
     try {
       const res = await fetch(
-        "https://shopdienmay-api.vercel.app/api/v1/product/detail/google-tivi-mini-led-sony-4k-85-inch-k-85xr90",
+        "https://shopdienmay-api.vercel.app/api/v1/product/detail/smart-tivi-samsung-4k-crystal-uhd-70-inch",
         {
           method: "GET",
         }
@@ -51,17 +51,18 @@ const ChiTietSanPham = () => {
 
     <div className="lg:px-20 max-md:px-2  my-5">
       <div className=" flex justify-between h-full max-md:flex-col gap-5 bg-white">
-        <div className="">
+        <div className="w-full">
           {product ? (
             <>
               <Image
                 id="image-show"
-                src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
-                // src={process.env.NEXT_PUBLIC_URL_LOCAL + `/` +product?.images[imageSlider]}
+                // src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
+                src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${product?.images[imageSlider]}`}
+                
                 alt="image-show"
-                width={100}
-                height={200}
-                className="w-full h-[400px] object-contain"
+                width={700}
+                height={100}
+                className=" h-[400px] object-contain mb-5"
               />
               <Carousel
                 opts={{
@@ -78,7 +79,7 @@ const ChiTietSanPham = () => {
                       >
                         <Image
                           key={index}
-                          src={`${process.env.NEXT_PUBLIC_URL_LOCAL || process.env.NEXT_PUBLIC_URL_PRODUCTION}${image}`} // Concatenate NEXT_PUBLIC_URL_LOCAL with image filename
+                          src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${image}`} // Concatenate NEXT_PUBLIC_URL_LOCAL with image filename
                           alt="images"
                           width={100}
                           height={50}

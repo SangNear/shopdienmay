@@ -4,7 +4,12 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'https://shopdienmay-api.vercel.app',
+                hostname: 'shopdienmay-api.vercel.app', // Corrected hostname
+                pathname: '/images/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'shopdienmay.vercel.app',
                 port: '1999',
                 pathname: '/images/**',
             },
