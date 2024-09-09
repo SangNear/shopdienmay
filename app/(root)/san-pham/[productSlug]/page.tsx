@@ -31,7 +31,7 @@ const ChiTietSanPham = () => {
   const getDetailProduct = async () => {
     try {
       const res = await fetch(
-        "https://shopdienmay-api.vercel.app/api/v1/product/detail/google-tivi-sony-hd-32-inch-kd-32w830k",
+        "https://shopdienmay-api.vercel.app/api/v1/product/detail/google-tivi-mini-led-sony-4k-85-inch-k-85xr90",
         {
           method: "GET",
         }
@@ -56,10 +56,11 @@ const ChiTietSanPham = () => {
             <>
               <Image
                 id="image-show"
-                src={product?.images[imageSlider]}
+                src={`${process.env.NEXT_PUBLIC_URL_LOCAL || process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
+                // src={process.env.NEXT_PUBLIC_URL_LOCAL + `/` +product?.images[imageSlider]}
                 alt="image-show"
-                width={10}
-                height={10}
+                width={900}
+                height={400}
                 className="w-full h-[400px] object-contain"
               />
               <Carousel
@@ -70,17 +71,14 @@ const ChiTietSanPham = () => {
               >
                 <CarouselContent>
                   {product.images.map(
-                    (
-                      image: string | StaticImport,
-                      index: React.Key | null | undefined
-                    ) => (
+                    (image: string | StaticImport, index: React.Key | null | undefined) => (
                       <CarouselItem
                         key={index}
                         className="max-sm:basis-1/2 max-md:basis-1/3 max-lg:basis-1/4 lg:basis-1/3 flex justify-around"
                       >
                         <Image
                           key={index}
-                          src={image}
+                          src={`${process.env.NEXT_PUBLIC_URL_LOCAL || process.env.NEXT_PUBLIC_URL_PRODUCTION}${image}`} // Concatenate NEXT_PUBLIC_URL_LOCAL with image filename
                           alt="images"
                           width={100}
                           height={50}

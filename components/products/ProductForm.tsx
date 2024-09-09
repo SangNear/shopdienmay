@@ -88,9 +88,9 @@ const ProductForm = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log("data form:", values);
-
+  
     const formData = new FormData();
-
+  
     // Append text fields to the FormData
     formData.append("name", values.name);
     formData.append("original", values.original);
@@ -98,23 +98,20 @@ const ProductForm = () => {
     formData.append("price", values.price.toString());
     formData.append("categories", values.categories);
     formData.append("quantity", values.quantity.toString());
-
-    // Append each image file and its metadata to FormData
-    if (values.images) {
+  
+    // Append each image file to FormData as files
+    if (values.images && values.images.length > 0) {
       values.images.forEach((file) => {
-        formData.append("images", file, file.name); // The third argument (file.name) will set the original filename
+        formData.append("images", file); // No need for base64, just send files
       });
     }
-
+  
     try {
-      const res = await fetch(
-        "http://localhost:1999/api/v1/product",
-        {
-          method: "POST",
-          body: formData, // Send FormData with files and metadata
-        }
-      );
-
+      const res = await fetch("http://localhost:1999/api/v1/product", {
+        method: "POST",
+        body: formData, // Send FormData with files and metadata
+      });
+  
       if (res.ok) {
         toast.success("Product added successfully!");
         router.push("/quantri/sanpham");
@@ -125,6 +122,7 @@ const ProductForm = () => {
       console.log(error);
     }
   };
+  
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files);
