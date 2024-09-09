@@ -115,9 +115,8 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
                 <Link
                   href={`/danh-sach-san-pham/${route as unknown as UrlObject}`}
                   key={item}
-                  className={`py-2 px-4 border rounded-lg max-sm:text-sm ${
-                    active ? "bg-[#fe0000] text-white" : ""
-                  } `}
+                  className={`py-2 px-4 border rounded-lg max-sm:text-sm ${active ? "bg-[#fe0000] text-white" : ""
+                    } `}
                 >
                   {item}
                 </Link>
@@ -133,7 +132,10 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
 
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
         {Array.from({ length: 30 }).map((i, inde) => (
+          <div key={inde}>
             <ProductCart />
+          </div>
+
         ))}
       </div>
       <div className="flex flex-col justify-end items-baseline w-full">
