@@ -56,8 +56,8 @@ const ChiTietSanPham = () => {
             <>
               <Image
                 id="image-show"
-                // src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
-                src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${product?.images[imageSlider]}`}
+                 src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
+                // src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${product?.images[imageSlider]}`}
                 
                 alt="image-show"
                 width={700}
@@ -79,7 +79,8 @@ const ChiTietSanPham = () => {
                       >
                         <Image
                           key={index}
-                          src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${image}`} // Concatenate NEXT_PUBLIC_URL_LOCAL with image filename
+                          // src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${image}`}
+                          src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${image}`}
                           alt="images"
                           width={100}
                           height={50}
