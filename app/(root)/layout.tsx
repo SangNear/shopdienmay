@@ -21,13 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-      </Head>
+      
       <body className={inter.className}>
         <div className="flex flex-col">
           <Header />

@@ -58,7 +58,6 @@ const ChiTietSanPham = () => {
                 id="image-show"
                  src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
                 // src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${product?.images[imageSlider]}`}
-                
                 alt="image-show"
                 width={700}
                 height={100}

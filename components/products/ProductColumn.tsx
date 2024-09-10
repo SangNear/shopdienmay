@@ -1,11 +1,13 @@
 import { ColumnDef } from "@tanstack/react-table";
 import Delete from "../custom ui/Delete";
+import Link from "next/link";
+import { PencilRuler } from "lucide-react";
 export const columns: ColumnDef<ProductTypes>[] = [
   {
     accessorKey: "name",
     header: () => <p style={{ textAlign: "center" }}>Tên sản phẩm</p>,
     cell: ({ row }) => (
-      <p style={{ textAlign: "left" }}>{row.original.name}</p>
+      <Link href={`/quantri/sanpham/edit/${row.original.slug}`} className="hover:text-[#fe0000] text-left">{row.original.name}</Link>
     ),
   },
   {
@@ -36,6 +38,19 @@ export const columns: ColumnDef<ProductTypes>[] = [
   },
   {
     id: "action",
-    cell: ({ row }) => <Delete id={row.original._id} item="products" />,
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center gap-2">
+          <Link className="bg-orange-400 py-2 px-3 text-white rounded-md text-sm" href={`/quantri/sanpham/edit/${row.original.slug}`}>
+            
+            <PencilRuler className="text-sm" />
+          </Link>
+          <Delete id={row.original._id} item="products" />
+
+        </div>
+
+      )
+
+    }
   },
 ];
