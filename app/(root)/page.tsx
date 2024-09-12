@@ -20,6 +20,7 @@ import {
   tulanhImageStock,
 } from "@/constants";
 import SystemStock from "@/components/custom ui/SystemStock";
+import TelephoneComponent from "@/components/custom ui/Telephone";
 
 export default function Home() {
   return (
@@ -93,7 +94,9 @@ export default function Home() {
         </div>
         <SystemStock />
       </div>
-      <SpeedDialComponent />
+
+      {/* <SpeedDialComponent /> */}
+      <TelephoneComponent phoneNumber={"0905684703"} />
     </div>
   );
 }

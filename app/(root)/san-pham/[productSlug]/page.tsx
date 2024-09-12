@@ -182,6 +182,7 @@ const ChiTietSanPham = () => {
           <Skeleton className="w-full h-[200px]" />
         )}
       </div>
+      
     </div>
   );
 };
