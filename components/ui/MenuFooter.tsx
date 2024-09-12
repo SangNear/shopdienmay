@@ -62,9 +62,8 @@ const MenuFooter = () => {
           <span className="text-lg font-bold">Thông tin khác</span>
         </AccordionSummary>
         <AccordionDetails className="flex flex-col gap-2">
-          <Link href="#">Tổng đài hỗ trọ miễn phí</Link>
-          <Link href="#">0905684703 (8:00 - 21:00)</Link>
-          <Link href="#">Email: nguyenlamsang2004@gmail.com</Link>
+          <Link href="#">Tổng đài hỗ trợ miễn phí</Link>
+          
         </AccordionDetails>
       </Accordion>
     </div>

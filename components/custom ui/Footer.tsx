@@ -37,7 +37,7 @@ const Footer = () => {
         </span>
         <span className="capitalize text-sm text-gray-500">
           {" "}
-          địa chỉ: Số 72 - 74 phổ quang, phường 2, tân bình, Tp Hồ Chí Minh, Việt Nam
+          địa chỉ: Số 72 - 74 phổ quang, P2, quận tân bình, Tp Hồ Chí Minh, Việt Nam
         </span>
         <span className="capitalize text-sm text-gray-500">
           {" "}
