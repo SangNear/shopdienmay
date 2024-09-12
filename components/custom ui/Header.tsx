@@ -84,16 +84,16 @@ const Header = () => {
           />
           <SearchIcon className="absolute text-gray-500 top-2  right-3 text-xl cursor-pointer hover:text-[#fe0000] transition-all" />
         </div>
-        <div className="flex items-center gap-4 max-lg:hidden">
+        <div className="flex items-center gap-5 max-lg:hidden">
           <div className="flex  text-white relative">
             <AddShoppingCartIcon className="text-[#fe0000] " />
             
-            <span className="text-white bg-[#fe0000] text-xs px-2 rounded-xl absolute right-0">{cart.length}</span>
+            <span className="text-white bg-[#fe0000] text-xs px-1 rounded-xl absolute -right-3 -top-2">{cart.length}</span>
 
           </div>
-          <div className="flex  text-white">
-            <ManageSearchIcon className="text-[#fe0000]" />
-            <span className="whitespace-nowrap text-black">
+          <div className="flex  text-white hover:text-[#fe0000] cursor-pointer">
+            <ManageSearchIcon className="text-[#fe0000]  hover:text-[#fe0000]" />
+            <span className="whitespace-nowrap text-black hover:text-[#fe0000]">
               Tra cứu đơn hàng
             </span>
           </div>

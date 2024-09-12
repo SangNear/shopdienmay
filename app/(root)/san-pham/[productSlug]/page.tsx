@@ -65,7 +65,7 @@ const ChiTietSanPham = () => {
                 alt="image-show"
                 width={700}
                 height={100}
-                className=" h-[400px] object-contain mb-5"
+                className=" h-[400px] max-md:h-[200px] object-contain mb-5"
               />
               <Carousel
                 opts={{
