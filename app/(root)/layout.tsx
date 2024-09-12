@@ -6,6 +6,7 @@ import Header from "@/components/custom ui/Header";
 import Menu from "@/components/custom ui/Menu";
 import MenuMobile from "@/components/custom ui/MenuMobile";
 import Footer from "@/components/custom ui/Footer";
+import ContextProvider, { CartContext } from "@/lib/context/cartContext/ContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,15 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
+
       <body className={inter.className}>
-        <div className="flex flex-col">
-          <Header />
-          <Menu />
-          <MenuMobile  />
-        </div>
-        {children}
-        <Footer/>
+        <ContextProvider>
+          <div className="flex flex-col">
+            <Header />
+            <Menu />
+            <MenuMobile />
+          </div>
+          {children}
+          <Footer />
+        </ContextProvider>
+
       </body>
     </html>
   );

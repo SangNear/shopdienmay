@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TextField from "./TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -17,7 +17,9 @@ import { Separator } from "../ui/separator";
 import { toslug } from "@/lib/utils";
 import { UrlObject } from "url";
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import { CartContext } from "@/lib/context/cartContext/ContextProvider";
 const Header = () => {
+  const {cart} = useContext(CartContext)
   const [value, setValue] = useState("");
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   return (
@@ -83,9 +85,11 @@ const Header = () => {
           <SearchIcon className="absolute text-gray-500 top-2  right-3 text-xl cursor-pointer hover:text-[#fe0000] transition-all" />
         </div>
         <div className="flex items-center gap-4 max-lg:hidden">
-          <div className="flex  text-white">
-            <AddShoppingCartIcon className="text-[#fe0000]" />
-            <span className="whitespace-nowrap text-black">Giỏ hàng</span>
+          <div className="flex  text-white relative">
+            <AddShoppingCartIcon className="text-[#fe0000] " />
+            
+            <span className="text-white bg-[#fe0000] text-xs px-2 rounded-xl absolute right-0">{cart.length}</span>
+
           </div>
           <div className="flex  text-white">
             <ManageSearchIcon className="text-[#fe0000]" />

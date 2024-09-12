@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
+import { CartContext } from "@/lib/context/cartContext/ContextProvider";
 import {
   calculateIncreasedValue,
   convertSlugToString,
@@ -19,14 +20,17 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { Key, useEffect, useState } from "react";
+import React, { Key, useContext, useEffect, useState } from "react";
 // Import Skeleton from Shadcn
 
 const ChiTietSanPham = () => {
+
+  const { dispatch, cart } = useContext(CartContext)
   const [product, setProduct] = useState<ProductTypes | null>(null);
   const [imageSlider, setImageSlider] = useState<Key | null | undefined>(0);
   const pathName = usePathname();
   const slug = pathName.split("/").filter(Boolean).pop();
+
 
   const getDetailProduct = async () => {
     try {
@@ -46,7 +50,7 @@ const ChiTietSanPham = () => {
   useEffect(() => {
     getDetailProduct();
   }, []);
-
+  console.log("gio hang", cart);
   return (
 
     <div className="lg:px-20 max-md:px-2  my-5">
@@ -56,7 +60,7 @@ const ChiTietSanPham = () => {
             <>
               <Image
                 id="image-show"
-                 src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
+                src={`${process.env.NEXT_PUBLIC_URL_PRODUCTION}${product?.images[imageSlider]}`}
                 // src={`${process.env.NEXT_PUBLIC_URL_LOCAL}${product?.images[imageSlider]}`}
                 alt="image-show"
                 width={700}
@@ -134,7 +138,10 @@ const ChiTietSanPham = () => {
                 <span className="font-bold text-green-600">Còn hàng</span>
               </p>
               <div className="flex items-center gap-4 w-full">
-                <Button className=" bg-[#fe0000] text-white flex gap-3 items-center">
+                <Button
+                  className=" bg-[#fe0000] text-white flex gap-3 items-center"
+                  onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
+                >
                   <ShoppingCart />
                   Thêm vào giỏ hàng
                 </Button>

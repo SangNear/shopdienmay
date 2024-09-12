@@ -28,7 +28,7 @@ const MenuFooter2 = () => {
             Hướng dẫn mua hàng online
           </Link>
           <Link href="#" className="text-sm text-gray-500">
-            giới thiệu công ty
+            Giới thiệu công ty
           </Link>
           <Link href="#" className="text-sm text-gray-500">
             Chính sách trả góp
@@ -62,10 +62,10 @@ const MenuFooter2 = () => {
             Tổng đài hỗ trọ miễn phí
           </Link>
           <Link href="#" className="text-sm text-gray-500">
-            0905684703 (8:00 - 21:00)
+          ................................
           </Link>
           <Link href="#" className="text-sm text-gray-500">
-            Email: nguyenlamsang2004@gmail.com
+            Email: ................................
           </Link>
           <Link href="#" className="text-sm text-gray-500">
             Gọi mua bảo hành

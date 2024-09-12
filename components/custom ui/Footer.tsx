@@ -33,12 +33,11 @@ const Footer = () => {
         ></iframe>
         <span className="text-sm text-gray-500">
           {" "}
-          Coppyright © 2024 bản quyền thuộc shop điện máy ABC được thiết kế và
-          phát triển bởi Lâm Sang
+          Coppyright © 2024 bản quyền thuộc shop điện máy 
         </span>
         <span className="capitalize text-sm text-gray-500">
           {" "}
-          địa chỉ: 72 - 74 phổ quang tân bình, Tp Hồ Chí Minh
+          địa chỉ: Số 72 - 74 phổ quang, phường 2, tân bình, Tp Hồ Chí Minh, Việt Nam
         </span>
         <span className="capitalize text-sm text-gray-500">
           {" "}
