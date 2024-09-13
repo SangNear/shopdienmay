@@ -1,6 +1,4 @@
 import Banner from "@/components/custom ui/Banner";
-import bannerTitle from "../../public/assets/banner/title-banner.jpg";
-import Image from "next/image";
 import ProductCart from "@/components/custom ui/ProductCart";
 import {
   Carousel,
@@ -10,15 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
-import SpeedDialComponent from "@/components/custom ui/SpeedDial";
 import ListProducts from "@/components/custom ui/ListProducts";
-import ImageStock from "@/components/custom ui/ImageStock";
-import {
-  maygiatImageStock,
-  maylanhImageStock,
-  tiviImageStock,
-  tulanhImageStock,
-} from "@/constants";
 import SystemStock from "@/components/custom ui/SystemStock";
 import TelephoneComponent from "@/components/custom ui/Telephone";
 

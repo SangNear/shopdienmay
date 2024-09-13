@@ -11,8 +11,8 @@ const Menu = () => {
   const [isTopMenuVisible, setIsTopMenuVisible] = useState(true);
   const submenuRef = useRef<HTMLDivElement | null>(null);
 
-  console.log("scroll", isTopMenuVisible);
-  console.log("submenuRef", submenuRef);
+  // console.log("scroll", isTopMenuVisible);
+  // console.log("submenuRef", submenuRef);
   
   // Effect to add a scroll event listener
   useEffect(() => {

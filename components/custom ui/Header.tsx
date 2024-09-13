@@ -19,7 +19,7 @@ import { UrlObject } from "url";
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import { CartContext } from "@/lib/context/cartContext/ContextProvider";
 const Header = () => {
-  const {cart} = useContext(CartContext)
+  const {products} = useContext(CartContext)
   const [value, setValue] = useState("");
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   return (
@@ -88,7 +88,7 @@ const Header = () => {
           <div className="flex  text-white relative">
             <AddShoppingCartIcon className="text-[#fe0000] " />
             
-            <span className="text-white bg-[#fe0000] text-xs px-1 rounded-xl absolute -right-3 -top-2">{cart.length}</span>
+            <span className="text-white bg-[#fe0000] text-xs px-1 rounded-xl absolute -right-3 -top-2">{products.length}</span>
 
           </div>
           <div className="flex  text-white hover:text-[#fe0000] cursor-pointer">

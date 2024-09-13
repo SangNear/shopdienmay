@@ -35,12 +35,14 @@
     "@tiptap/pm": "^2.6.6",
     "@tiptap/react": "^2.6.6",
     "@tiptap/starter-kit": "^2.6.6",
+    "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.2.0",
     "embla-carousel-react": "^8.2.0",
     "framer-motion": "^11.3.30",
     "gsap": "^3.12.5",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.435.0",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.4",
@@ -56,6 +58,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

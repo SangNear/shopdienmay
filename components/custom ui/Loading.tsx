@@ -2,12 +2,12 @@ import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
 import React from 'react'
 
-const loading = () => {
+const Loading = () => {
   return (
-    <Box sx={{ width: '100%' }}>
-      <LinearProgress color="secondary" />
-    </Box>
+    
+      <LinearProgress color='success'  />
+    
   )
 }
 
-export default loading
+export default Loading

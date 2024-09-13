@@ -4,13 +4,13 @@ import CartReducer from './CartReducer';
 
 // Define the CartContext type
 interface CartContextType {
-  cart: any[];
+  products: CartTypes[];
   dispatch: React.Dispatch<{ type: string; payload?: any }>;
 }
 
 // Default context value (empty cart and a dummy dispatch function)
 export const CartContext = createContext<CartContextType>({
-  cart: [],
+  products: [],
   dispatch: () => {}
 });
 
@@ -20,10 +20,10 @@ interface ContextProviderProps {
 }
 
 const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
-  const [cart, dispatch] = useReducer(CartReducer, []);
+  const [products, dispatch] = useReducer(CartReducer, []);
 
   return (
-    <CartContext.Provider value={{ cart, dispatch }}>
+    <CartContext.Provider value={{ products, dispatch }}>
       {children}
     </CartContext.Provider>
   );
