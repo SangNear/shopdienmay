@@ -25,7 +25,7 @@ import React, { Key, useContext, useEffect, useState } from "react";
 
 const ChiTietSanPham = () => {
 
-  const { dispatch, cart } = useContext(CartContext)
+  const { dispatch, products } = useContext(CartContext)
   const [product, setProduct] = useState<ProductTypes | null>(null);
   const [imageSlider, setImageSlider] = useState<Key | null | undefined>(0);
   const pathName = usePathname();
@@ -50,7 +50,7 @@ const ChiTietSanPham = () => {
   useEffect(() => {
     getDetailProduct();
   }, []);
-  console.log("gio hang", cart);
+  console.log("gio hang", products);
   return (
 
     <div className="lg:px-20 max-md:px-2  my-5">

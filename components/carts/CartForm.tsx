@@ -65,7 +65,7 @@ const CartForm = () => {
             }
 
             // API call to create order
-            const response = await fetch("http://localhost:1999/api/v1/order", {
+            const response = await fetch("https://shopdienmay-api.vercel.app/api/v1/order", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
