@@ -35,7 +35,7 @@ const ChiTietSanPham = () => {
   const getDetailProduct = async () => {
     try {
       const res = await fetch(
-        "https://shopdienmay-api.vercel.app/api/v1/product/detail/smart-tivi-samsung-4k-crystal-uhd-70-inch",
+        "http://api.dienmaygiatotsaigon.vn/api/v1/product/detail/smart-tivi-samsung-4k-crystal-uhd-70-inch",
         {
           method: "GET",
         }

@@ -3,8 +3,8 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: 'https',
-                hostname: 'shopdienmay-api.vercel.app', // Corrected hostname
+                protocol: 'http',
+                hostname: 'api.dienmaygiatotsaigon.vn', // Corrected hostname
                 pathname: '/images/**',
             },
             {

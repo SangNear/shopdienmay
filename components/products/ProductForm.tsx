@@ -71,7 +71,7 @@ const ProductForm = () => {
   const getCollection = async () => {
     try {
       const res = await fetch(
-        "https://shopdienmay-api.vercel.app/api/v1/category",
+        "http://api.dienmaygiatotsaigon.vn/api/v1/category",
         {
           method: "GET",
         }
@@ -110,7 +110,7 @@ const ProductForm = () => {
     }
   
     try {
-      const res = await fetch("http://localhost:1999/api/v1/product", {
+      const res = await fetch("http://api.dienmaygiatotsaigon.vn/api/v1/product", {
         method: "POST",
         body: formData, // Send FormData with files and metadata
       });
