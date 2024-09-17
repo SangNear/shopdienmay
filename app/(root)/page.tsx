@@ -20,6 +20,17 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col justify-between   ">
+        <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
+          <ListProducts title="tivi" />
+        </div>
+        <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
+          <ListProducts title="máy giặt" />
+        </div>
+        <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
+          <ListProducts title="tủ lạnh" />
+        </div>
+
+
         <h2 className="text-2xl font-bold uppercase text-white text-center mt-2 p-2 bg-[#fe0000]">
           top sản phẩm nổi bật
         </h2>
@@ -50,8 +61,7 @@ export default function Home() {
           </h2>
           <Separator />
           <div className="mt-2 flex flex-wrap justify-evenly gap-2 m-auto items-center  pb-5 ">
-            
-            <ProductCart />
+            <ProductCart name="test" />
             <ProductCart />
             <ProductCart />
             <ProductCart />
@@ -73,15 +83,7 @@ export default function Home() {
             <ProductCart />
           </div>
         </div>
-        <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
-          <ListProducts title="tủ lạnh" />
-        </div>
-        <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
-          <ListProducts title="máy giặt" />
-        </div>
-        <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
-          <ListProducts title="máy lạnh" />
-        </div>
+
         <SystemStock />
       </div>
 

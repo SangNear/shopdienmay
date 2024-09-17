@@ -23,8 +23,15 @@ type CartTypes = {
     price: number,
     quantity: number,
     slug: string,
-    original:string,
+    original: string,
     images: [string],
     description: string,
-    
+
+}
+type ProductCartProps = {
+    name?: string
+    slug?: string
+    image?: string | StaticImport
+    price?: number
+
 }

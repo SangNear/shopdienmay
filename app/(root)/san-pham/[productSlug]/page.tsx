@@ -23,7 +23,9 @@ import { usePathname } from "next/navigation";
 import React, { Key, useContext, useEffect, useState } from "react";
 // Import Skeleton from Shadcn
 
-const ChiTietSanPham = () => {
+const ChiTietSanPham = ({ params }: { params: { productSlug: string } }) => {
+
+
 
   const { dispatch, products } = useContext(CartContext)
   const [product, setProduct] = useState<ProductTypes | null>(null);
@@ -35,7 +37,7 @@ const ChiTietSanPham = () => {
   const getDetailProduct = async () => {
     try {
       const res = await fetch(
-        "http://api.dienmaygiatotsaigon.vn/api/v1/product/detail/smart-tivi-samsung-4k-crystal-uhd-70-inch",
+        `http://api.dienmaygiatotsaigon.vn/api/v1/product/detail/${params.productSlug}`,
         {
           method: "GET",
         }
@@ -50,7 +52,7 @@ const ChiTietSanPham = () => {
   useEffect(() => {
     getDetailProduct();
   }, []);
-  console.log("gio hang", products);
+  console.log("gio hang", product);
   return (
 
     <div className="lg:px-20 max-md:px-2  my-5">
@@ -182,7 +184,7 @@ const ChiTietSanPham = () => {
           <Skeleton className="w-full h-[200px]" />
         )}
       </div>
-      
+
     </div>
   );
 };
