@@ -14,8 +14,9 @@ const ProductCart = ({ name, slug, image, price }: ProductCartProps) => {
     // Smart-Tivi-Samsung-4K-Crystal-UHD-70-inch-UA70DU7000
     <Link
       href={`/san-pham/${slug ? slug : "Smart-Tivi-Samsung-4K-Crystal-UHD-70-inch-UA70DU7000"}`}
-      className="w-[165px] lg:w-[220px] h-[315px] rounded-xl shadow-xl bg-white flex flex-col justify-between">
-      <div className="p-2 w-full ">
+      className="w-[165px] lg:w-[220px] h-[315px] rounded-xl shadow-xl bg-white flex flex-col justify-between relative">
+      <span className="text-[#fe0000] absolute text-xs top-1 right-1 px-1 rounded-xl border border-[#fe0000] w-fit  ">trả góp 0% </span>
+      <div className="p-2 w-full mt-7 ">
         <Image
           src={image ? `http://api.dienmaygiatotsaigon.vn/images/${image}` : tv2}
           priority
@@ -39,6 +40,7 @@ const ProductCart = ({ name, slug, image, price }: ProductCartProps) => {
           <span className="text-xs text-[#78c63b]">Còn hàng</span>
         </div>
       </div>
+
     </Link>
   );
 };

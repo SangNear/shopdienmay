@@ -20,7 +20,7 @@ const ListProducts = ({ title }: ListProductProps) => {
         method: "GET"
       })
       const data = await res.json()
-      console.log("data lish", data);
+      
       
       setProducts(data.products)
     } catch (error) {

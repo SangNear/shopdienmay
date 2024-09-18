@@ -52,7 +52,7 @@ const ChiTietSanPham = ({ params }: { params: { productSlug: string } }) => {
   useEffect(() => {
     getDetailProduct();
   }, []);
-  console.log("gio hang", product);
+  
   return (
 
     <div className="lg:px-20 max-md:px-2  my-5">
