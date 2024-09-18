@@ -18,11 +18,12 @@ const ProductCart = ({ name, slug, image, price }: ProductCartProps) => {
       <div className="p-2 w-full ">
         <Image
           src={image ? `http://api.dienmaygiatotsaigon.vn/images/${image}` : tv2}
-          
-          width={900}
+          priority
+          width={9000}
           height={50}
           alt="card"
-          className="w-full h-40 transform transition-transform duration-300 hover:-translate-y-2"
+          className="w-[100%] object-contain h-40 transform transition-transform duration-300 hover:-translate-y-2"
+
         />
       </div>
       <div className="p-2 w-full">

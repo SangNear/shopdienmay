@@ -14,7 +14,7 @@ type ProductTypes = {
     quantity: string,
     description: string,
     brands: string,
-    images: string | StaticImport
+    images: string | StaticImport | [string]
 }
 type CartTypes = {
     _id: string,

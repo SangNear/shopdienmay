@@ -41,8 +41,8 @@ export const columns: ColumnDef<ProductTypes>[] = [
     cell: ({ row }) => {
       return (
         <div className="flex items-center gap-2">
-          <Link className="bg-orange-400 py-2 px-3 text-white rounded-md text-sm" href={`/quantri/sanpham/edit/${row.original.slug}`}>
-            
+          <Link className="bg-orange-400 py-2 px-3 text-white rounded-md text-sm" href="#">
+
             <PencilRuler className="text-sm" />
           </Link>
           <Delete id={row.original._id} item="products" />

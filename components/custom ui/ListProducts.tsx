@@ -31,7 +31,7 @@ const ListProducts = ({ title }: ListProductProps) => {
     getListProductBySlug()
   }, [])
   return (
-    <div className="w-full h-auto flex flex-col gap-2 bg-transparent">
+    <div className="w-full h-auto flex flex-col gap-2 bg-transparent ">
       <div className="flex justify-between items-center">
         <h2 className="bg-gradient-to-br from-[#fe0000] via-[#ee5757] to-white uppercase text-sm font-bold border rounded-2xl text-white p-2">
           {title}
@@ -46,7 +46,7 @@ const ListProducts = ({ title }: ListProductProps) => {
           opts={{
             align: "start",
           }}
-          className=""
+          className="py-2"
         >
           <CarouselContent>
             {products.map((item, index) => (
