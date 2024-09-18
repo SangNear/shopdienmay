@@ -21,7 +21,7 @@ const nextConfig = {
             },
         ],
     },
-    output: "export"
+    // output: "export"
 };
 
 export default nextConfig;
