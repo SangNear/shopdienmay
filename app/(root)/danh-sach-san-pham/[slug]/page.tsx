@@ -17,7 +17,7 @@ import { convertSlugToString, toslug } from "@/lib/utils";
 
 import Link from "next/link";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UrlObject } from "url";
 import {
   Pagination,
@@ -33,7 +33,28 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
   console.log("value radio", selectedValue);
   const [page, setPage] = useState(1);
   const totalPage = 4;
-  // const listProduct = await getAllProductBySlug(slug)
+  const [products, setProducts] = useState<ProductTypes[]>([])
+  const [loading, setLoading] = useState(true);
+  const getAllProductBySlug = async () => {
+    try {
+      const res = await fetch(
+        `http://api.dienmaygiatotsaigon.vn/api/v1/product/${slug}`,
+        { method: "GET" }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setProducts(data.products);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Failed to load product details:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getAllProductBySlug()
+  }, [])
   return (
     <div className="lg:px-20 max-md:px-2 w-full">
       {/* top */}
@@ -50,12 +71,12 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
             className=""
           >
             <CarouselContent>
-              {Array.from({ length: 9 }).map((_, index) => (
+              {products.map((item, index) => (
                 <CarouselItem
                   key={index}
                   className="max-sm:basis-1/2 max-md:basis-1/3 max-lg:basis-1/4 lg:basis-1/5 flex justify-around"
                 >
-                  <ProductCart />
+                  <ProductCart name={item.name} slug={item.slug} image={item.images[0]} price={item.price} />
                 </CarouselItem>
               ))}
             </CarouselContent>
