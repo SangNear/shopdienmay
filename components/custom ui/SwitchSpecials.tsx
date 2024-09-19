@@ -23,7 +23,7 @@ const SwitchSpecials = ({ isSpecials, slug }: SwitchSpecialsProps) => {
             setValue(newValue);
 
             // Send API request to update specials status
-            const response = await fetch('http://localhost:1999/api/v1/product', {
+            const response = await fetch('http://api.dienmaygiatotsaigon.vn/api/v1/product', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
