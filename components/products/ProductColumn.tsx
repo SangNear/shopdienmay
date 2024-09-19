@@ -2,6 +2,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import Delete from "../custom ui/Delete";
 import Link from "next/link";
 import { PencilRuler } from "lucide-react";
+import SwitchSpecials from "../custom ui/SwitchSpecials";
 export const columns: ColumnDef<ProductTypes>[] = [
   {
     accessorKey: "name",
@@ -9,6 +10,15 @@ export const columns: ColumnDef<ProductTypes>[] = [
     cell: ({ row }) => (
       <Link href={`/quantri/sanpham/edit/${row.original.slug}`} className="hover:text-[#fe0000] text-left">{row.original.name}</Link>
     ),
+  },
+  {
+    accessorKey: "specials",
+    header: () => <p style={{ textAlign: "center" }}>Đặc biệt</p>,
+    cell: ({ row }) => {
+      console.log("Row data:", row.original); // Debugging data
+      const slug = row.original.slug || "default-id"; // Fallback to prevent undefined id
+      return <SwitchSpecials slug={slug} isSpecials={row.original.specials} />;
+    },
   },
   {
     accessorKey: "categories",

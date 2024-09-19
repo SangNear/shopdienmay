@@ -8,7 +8,7 @@ import ToasterProvider from "@/lib/ToasterProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Đăng nhập",
+  title: "Quản trị hệ thống điện máy ",
   description: "Shop Điện Máy - Đăng nhập",
 };
 

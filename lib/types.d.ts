@@ -6,6 +6,7 @@ type CollectionsTypes = {
 
 type ProductTypes = {
     _id: string,
+    specials: boolean 
     name: string,
     slug: string,
     original: string,

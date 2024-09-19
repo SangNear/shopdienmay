@@ -7,8 +7,6 @@ import tv2 from "../../public/assets/products/tv2.jpg";
 import Link from "next/link";
 import { formatCurrency } from "@/lib/utils";
 
-
-
 const ProductCart = ({ name, slug, image, price }: ProductCartProps) => {
   return (
     // Smart-Tivi-Samsung-4K-Crystal-UHD-70-inch-UA70DU7000
@@ -40,8 +38,8 @@ const ProductCart = ({ name, slug, image, price }: ProductCartProps) => {
           <span className="text-xs text-[#78c63b]">Còn hàng</span>
         </div>
       </div>
-
     </Link>
+    
   );
 };
 
