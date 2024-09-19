@@ -113,7 +113,7 @@ const ProductForm = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:1999/api/v1/product", {
+      const res = await fetch("http://api.dienmaygiatotsaigon.vn/api/v1/product", {
         method: "POST",
         body: formData, // Send FormData with files and metadata
       });
