@@ -58,8 +58,8 @@ export default function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="absolute top-[50%] left-0" />
+          <CarouselNext className="absolute top-[50%] right-0" />
         </Carousel>
       </div>
       <Separator className="text-[#fe0000] bg-[#fe0000] mt-10" />

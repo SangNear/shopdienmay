@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import ProductCart from "./ProductCart";
 import Link from "next/link";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import { toslug } from "@/lib/utils";
 
 interface ListProductProps {
@@ -20,8 +20,8 @@ const ListProducts = ({ title }: ListProductProps) => {
         method: "GET"
       })
       const data = await res.json()
-      
-      
+
+
       setProducts(data.products)
     } catch (error) {
 
@@ -58,6 +58,8 @@ const ListProducts = ({ title }: ListProductProps) => {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious className="absolute top-[50%] left-0" />
+          <CarouselNext className="absolute top-[50%] right-0" />
         </Carousel>
       </div>
     </div>
