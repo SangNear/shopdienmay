@@ -107,6 +107,7 @@ export default function Home() {
 
         <SystemStock />
       </div>
+      
 
       {/* <SpeedDialComponent /> */}
       <TelephoneComponent phoneNumber={"0905684703"} />

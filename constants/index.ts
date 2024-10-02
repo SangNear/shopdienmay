@@ -7,7 +7,7 @@ import LocalLaundryServiceOutlinedIcon from "@mui/icons-material/LocalLaundrySer
 import WindPowerIcon from "@mui/icons-material/WindPower";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 
-import banner1 from "../public/assets/banner/banner4.jpeg";
+import banner1 from "../public/assets/banner/banner-thiet-bi-dien-may.png";
 import banner2 from "../public/assets/banner/banner2.jpg";
 import banner3 from "../public/assets/banner/banner3.jpeg";
 
@@ -98,12 +98,12 @@ export const menuNavLinks: MenuNavLink[] = [
       {
         subMenuTitle: "Màn hình",
         subMenuRoute: [
-          "Tivi 14in",
-          "Tivi 15in",
-          "Tivi 17in",
-          "Tivi 24in",
-          "Tivi 27in",
-          "Tivi 34in",
+          "14 inch",
+          "15 inch",
+          "17 inch",
+          "24 inch",
+          "27 inch",
+          "43 inch",
         ],
       },
     ],
@@ -125,10 +125,7 @@ export const menuNavLinks: MenuNavLink[] = [
           "Loa blutooth",
         ],
       },
-      {
-        subMenuTitle: "Màn hình",
-        subMenuRoute: ["14in", "15in", "17in", "24in", "27in", "34in"],
-      },
+      
     ],
   },
   {
@@ -152,10 +149,6 @@ export const menuNavLinks: MenuNavLink[] = [
           "Tủ lạnh Hitachi",
           "Tủ lạnh Mitsubishi",
         ],
-      },
-      {
-        subMenuTitle: "Loại Tủ lạnh",
-        subMenuRoute: ["14in", "15in", "17in", "24in", "27in", "34in"],
       },
     ],
   },

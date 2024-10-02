@@ -36,7 +36,7 @@ const ListProducts = ({ title }: ListProductProps) => {
         <h2 className="bg-gradient-to-br from-[#fe0000] via-[#ee5757] to-white uppercase text-sm font-bold border rounded-2xl text-white p-2">
           {title}
         </h2>
-        <Link href="#" className="uppercase text-sm text-[#fe0000]">
+        <Link href={`/danh-sach-san-pham/${slug}`} className="uppercase text-sm text-[#fe0000]">
           xem tất cả {">"}
           {">"}
         </Link>

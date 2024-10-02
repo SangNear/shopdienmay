@@ -2,6 +2,7 @@
 import ImageStock from "@/components/custom ui/ImageStock";
 import ProductCart from "@/components/custom ui/ProductCart";
 import SystemStock from "@/components/custom ui/SystemStock";
+import { Button } from "@/components/ui/button";
 
 import {
   Carousel,
@@ -10,41 +11,39 @@ import {
 } from "@/components/ui/carousel";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
 import { menuBrandFilter } from "@/constants";
-
 import { convertSlugToString, toslug } from "@/lib/utils";
-
 import Link from "next/link";
-
 import React, { useEffect, useState } from "react";
 import { UrlObject } from "url";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+
+
 const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const menuTitle = convertSlugToString(slug);
   const [selectedValue, setSelectedValue] = useState("default");
-  console.log("value radio", selectedValue);
-  const [page, setPage] = useState(1);
-  const totalPage = 4;
-  const [products, setProducts] = useState<ProductTypes[]>([])
+  const [page, setPage] = useState(1);  // Track the current page
+  const [products, setProducts] = useState<ProductTypes[]>([]);
   const [loading, setLoading] = useState(true);
-  const getAllProductBySlug = async () => {
+  const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true); // Track visibility of the "Xem Thêm" button
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const getAllProductBySlug = async (page = 1) => {
     try {
       const res = await fetch(
-        `http://api.dienmaygiatotsaigon.vn/api/v1/product/${slug}`,
+        `http://api.dienmaygiatotsaigon.vn/api/v1/product/${slug}?page=${page}`,
         { method: "GET" }
       );
       if (res.ok) {
         const data = await res.json();
-        setProducts(data.products);
+        // If there are no more products to load, hide the "Xem Thêm" button
+        const { products: newProducts, totalPages, currentPage } = data;
+        setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+        setTotalPages(totalPages);
+        setCurrentPage(currentPage);
         setLoading(false);
+        setIsLoadingMore(false);
       }
     } catch (error) {
       console.error("Failed to load product details:", error);
@@ -53,8 +52,16 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
   };
 
   useEffect(() => {
-    getAllProductBySlug()
-  }, [])
+    getAllProductBySlug();
+  }, []); // Fetch products when the page changes
+
+  const handleLoadMore = () => {
+    if (currentPage < totalPages) {
+      setIsLoadingMore(true);
+      getAllProductBySlug(currentPage + 1);
+    }
+  };
+
   return (
     <div className="lg:px-20 max-md:px-2 w-full">
       {/* top */}
@@ -150,43 +157,26 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
       )}
 
       {/* list */}
-
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
-        {Array.from({ length: 30 }).map((i, inde) => (
-          <div key={inde}>
-            <ProductCart />
+        {products.map((item, index) => (
+          <div key={index}>
+            <ProductCart name={item.name} slug={item.slug} image={item.images[0]} price={item.price} />
           </div>
-
         ))}
       </div>
-      <div className="flex flex-col justify-end items-baseline w-full">
-        <p>Trang hiện tại {page}</p>
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem
-              className="cursor-pointer"
-              onClick={() => setPage(page - 1)}
-            >
-              <PaginationPrevious />
-            </PaginationItem>
-            {Array.from({ length: totalPage }).map((_, index) => (
-              <PaginationItem
-                key={index}
-                onClick={() => setPage(index + 1)}
-                className="py-1 px-3 rounded-xl cursor-pointer shadow-xl text-center flex items-center border"
-              >
-                {index + 1}
-              </PaginationItem>
-            ))}
-            <PaginationItem
-              className="cursor-pointer"
-              onClick={() => setPage(page + 1)}
-            >
-              <PaginationNext />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      </div>
+
+      {/* "Xem Thêm" Button */}
+      {!loading && currentPage < totalPages && (
+        <div className="flex justify-center mt-4">
+          <Button
+            onClick={handleLoadMore}
+            disabled={isLoadingMore}
+            className="bg-[#fe0000] text-white hover:bg-white hover:border hover:border-red-500 hover:text-[#fe0000]"
+          >
+            {isLoadingMore ? "Đang tải..." : "Xem thêm "}
+          </Button>
+        </div>
+      )}
 
       <SystemStock />
     </div>
