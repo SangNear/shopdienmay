@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import {
     Carousel,
     CarouselContent,
@@ -9,7 +9,6 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
-import maygiat from "../public/assets/stock/maygiat1.jpg"
 import Image from 'next/image'
 import { ImagesStock } from '@/constants'
 

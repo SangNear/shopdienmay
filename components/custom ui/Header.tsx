@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TextField from "./TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -17,11 +17,13 @@ import { Separator } from "../ui/separator";
 import { toslug } from "@/lib/utils";
 import { UrlObject } from "url";
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import { CartContext } from "@/lib/context/cartContext/ContextProvider";
 const Header = () => {
+  const {products} = useContext(CartContext)
   const [value, setValue] = useState("");
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   return (
-    <div className="max-md:px-2 lg:px-20 py-6 px-2 w-full  flex justify-between max-md:flex-col gap-4 max-lg:bg-[#fe0000]">
+    <header className="max-md:px-2 lg:px-20 py-6 px-2 w-full  flex justify-between max-md:flex-col gap-4 max-lg:bg-[#fe0000]">
       <div className="flex justify-between items-center w-full">
         <Link href="/">
           <h1 className="font-bold max-lg:text-white text-[#fe0000] text-2xl max-sm:text-xl  ">
@@ -82,14 +84,16 @@ const Header = () => {
           />
           <SearchIcon className="absolute text-gray-500 top-2  right-3 text-xl cursor-pointer hover:text-[#fe0000] transition-all" />
         </div>
-        <div className="flex items-center gap-4 max-lg:hidden">
-          <div className="flex  text-white">
-            <AddShoppingCartIcon className="text-[#fe0000]" />
-            <span className="whitespace-nowrap text-black">Giỏ hàng</span>
+        <div className="flex items-center gap-5 max-lg:hidden">
+          <div className="flex  text-white relative">
+            <AddShoppingCartIcon className="text-[#fe0000] " />
+            
+            <span className="text-white bg-[#fe0000] text-xs px-1 rounded-xl absolute -right-3 -top-2">{products.length}</span>
+
           </div>
-          <div className="flex  text-white">
-            <ManageSearchIcon className="text-[#fe0000]" />
-            <span className="whitespace-nowrap text-black">
+          <div className="flex  text-white hover:text-[#fe0000] cursor-pointer">
+            <ManageSearchIcon className="text-[#fe0000]  hover:text-[#fe0000]" />
+            <span className="whitespace-nowrap text-black hover:text-[#fe0000]">
               Tra cứu đơn hàng
             </span>
           </div>
@@ -107,7 +111,7 @@ const Header = () => {
         />
         <SearchIcon className="absolute text-gray-500 top-3 max-md:top-2 right-3 text-2xl cursor-pointer  transition-all" />
       </div>
-    </div>
+    </header>
   );
 };
 

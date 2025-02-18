@@ -45,8 +45,8 @@ export function DataTable<TData, TValue>({
       columnFilters,
     },
   });
-  console.log("data table:",  data);
-  
+
+
   return (
     <div>
       <div className="flex items-center py-4">
@@ -60,34 +60,35 @@ export function DataTable<TData, TValue>({
         />
       </div>
       <div className="rounded-md border">
-        <Table>
-          <TableHeader>
+        <Table className="">
+          <TableHeader className="">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   );
                 })}
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          <TableBody >
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
+
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -103,7 +104,7 @@ export function DataTable<TData, TValue>({
                   className="h-24 text-center"
                 >
                   {/* <CircularProgress color="error" /> */}
-                  <CircularProgress/>
+                  <CircularProgress />
                 </TableCell>
               </TableRow>
             )}

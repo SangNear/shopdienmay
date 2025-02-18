@@ -1,20 +1,42 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import ProductCart from "./ProductCart";
 import Link from "next/link";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { toslug } from "@/lib/utils";
 
 interface ListProductProps {
   title: String;
 }
 
 const ListProducts = ({ title }: ListProductProps) => {
+  const [products, setProducts] = useState<ProductTypes[]>([])
+  const slug = toslug(title)
+
+
+  const getListProductBySlug = async () => {
+    try {
+      const res = await fetch(`http://api.dienmaygiatotsaigon.vn/api/v1/product/${slug}`, {
+        method: "GET"
+      })
+      const data = await res.json()
+
+
+      setProducts(data.products)
+    } catch (error) {
+
+    }
+  }
+  useEffect(() => {
+    getListProductBySlug()
+  }, [])
   return (
-    <div className="w-full h-auto flex flex-col gap-2 bg-transparent">
+    <div className="w-full h-auto flex flex-col gap-2 bg-transparent ">
       <div className="flex justify-between items-center">
         <h2 className="bg-gradient-to-br from-[#fe0000] via-[#ee5757] to-white uppercase text-sm font-bold border rounded-2xl text-white p-2">
           {title}
         </h2>
-        <Link href="#" className="uppercase text-sm text-[#fe0000]">
+        <Link href={`/danh-sach-san-pham/${slug}`} className="uppercase text-sm text-[#fe0000]">
           xem tất cả {">"}
           {">"}
         </Link>
@@ -24,18 +46,20 @@ const ListProducts = ({ title }: ListProductProps) => {
           opts={{
             align: "start",
           }}
-          className=""
+          className="py-2"
         >
           <CarouselContent>
-            {Array.from({ length: 9 }).map((_, index) => (
+            {products.map((item, index) => (
               <CarouselItem
                 key={index}
                 className="max-sm:basis-1/2 max-md:basis-1/3 max-lg:basis-1/4 lg:basis-1/5 flex justify-around"
               >
-                <ProductCart />
+                <ProductCart name={item.name} slug={item.slug} image={item.images[0]} price={item.price} />
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious className="absolute top-[50%] left-0" />
+          <CarouselNext className="absolute top-[50%] right-0" />
         </Carousel>
       </div>
     </div>
