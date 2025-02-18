@@ -89,6 +89,7 @@ const ChiTietSanPham = () => {
                           onClick={() => setImageSlider(index)}
                         />
                       </CarouselItem>
+                      
                     )
                   )}
                 </CarouselContent>
@@ -96,7 +97,7 @@ const ChiTietSanPham = () => {
               <div className="flex gap-2 items-center justify-center"></div>
             </>
           ) : (
-            <Skeleton className="w-full h-[400px]" />
+            <Skeleton className="w-full hhhhhhhhhhhhhhhhhhhh-[400px]" />
           )}
         </div>
         <div className="w-full flex flex-col gap-4 items-start justify-start h-full mt-12">

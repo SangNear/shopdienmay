@@ -46,7 +46,7 @@ const Page = () => {
         </Button>
       </div>
       <Separator className="bg-grey-1 my-4" />
-
+    
       <div>
         <DataTable columns={columns} data={products} searchKey="name" />
       </div>

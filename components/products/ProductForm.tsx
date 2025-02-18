@@ -106,7 +106,7 @@ const ProductForm = () => {
     if (values.images && values.images.length > 0) {
       values.images.forEach((file) => {
         formData.append("images", file); // No need for base64, just send files
-      });
+      })
     }
   
     try {
