@@ -27,7 +27,7 @@ const Header = () => {
       <div className="flex justify-between items-center w-full">
         <Link href="/">
           <h1 className="font-bold max-lg:text-white text-[#fe0000] text-2xl max-sm:text-xl  ">
-            Shop dien may
+            Shop HD
           </h1>
         </Link>
 

@@ -25,18 +25,20 @@ const Footer = () => {
       </div>
       <div className="w-full flex flex-col gap-2 lg:px-10 mt-3 max-md:px-2">
         <h3 className="text-2xl text-[#fe0000] font-semibold">Cửa hàng</h3>
-        
+
+       
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31349.539781250696!2d106.63224879808536!3d10.834829753280001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529aa0f7513ed%3A0xd054812703654f77!2zS0RDIENpdHlsYW5kIFBhcmsgSGlsbHMsIHBoxrDhu51uZyAxMCwgR8OyIFbhuqVwLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1739877330962!5m2!1svi!2s"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.6410130162415!2d106.71811978853776!3d10.789698297339978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290b47e91781%3A0xc4f130a44beae17c!2sSaigon%20Pearl!5e0!3m2!1svi!2s!4v1742876390378!5m2!1svi!2s"
           height="450"
           loading="lazy"
           className="rounded-lg w-full "
         ></iframe>
+
         <span className="text-sm text-gray-500">
           {" "}
-          Coppyright © 2024 bản quyền thuộc shop điện máy 
+          Coppyright © 2024 bản quyền thuộc shop điện máy
         </span>
-         {/* <span className="capitalize text-sm text-gray-500">
+        {/* <span className="capitalize text-sm text-gray-500">
           {" "}
           địa chỉ: 72 - 74 phổ quang tân bình, Tp Hồ Chí Minh
         </span> */}
