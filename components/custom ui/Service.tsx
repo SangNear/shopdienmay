@@ -19,7 +19,7 @@ const Service = () => {
           <WorkOutlineOutlinedIcon className="text-5xl text-[#fe0000]" />
           <div className="flex flex-col text-center">
             <h3 className="text-sm font-semibold">Đổi trả dễ dàng</h3>
-            <span className="text-xs">Đổi mới trong 15 ngày đầu</span>
+            <span className="text-xs">Đổi mới trong 03 ngày đầu</span>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-2 items-center justify-center">
@@ -34,7 +34,7 @@ const Service = () => {
         <div className="flex flex-col lg:flex-row gap-2 items-center justify-center">
           <SupportAgentOutlinedIcon className="text-5xl text-[#fe0000]" />
           <div className="flex flex-col text-center">
-            <h3 className="text-sm font-semibold">Hỗ trợ nhiệt tình</h3>
+            <h3 className="text-sm font-semibold">Hỗ trợ </h3>
             <span className="text-xs">Tư vấn tổng đài miễn phí 24/7</span>
           </div>
         </div>
