@@ -110,7 +110,7 @@ export default function Home() {
       
 
       {/* <SpeedDialComponent /> */}
-      <TelephoneComponent phoneNumber={"0905684703"} />
+      <TelephoneComponent phoneNumber={"0234 3616668"} />
     </div>
   );
 }

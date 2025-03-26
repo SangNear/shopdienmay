@@ -10,6 +10,10 @@ import AcUnitIcon from "@mui/icons-material/AcUnit";
 import banner1 from "../public/assets/banner/banner-thiet-bi-dien-may.png";
 import banner2 from "../public/assets/banner/banner2.jpg";
 import banner3 from "../public/assets/banner/banner3.jpeg";
+import banner5 from "../public/assets/banner/banner5.jpg";
+import banner6 from "../public/assets/banner/banner6.jpg";
+import banner7 from "../public/assets/banner/banner7.jpg";
+
 
 import maygiat from "../public/assets/stock/maygiat1.jpg";
 import maygiat2 from "../public/assets/stock/maygiat2.jpg";
@@ -181,16 +185,24 @@ export const menuNavLinks: MenuNavLink[] = [
 
 export const imagesCarousel = [
   {
-    name: "banner 1",
-    src: banner1,
-  },
-  {
     name: "banner 2",
     src: banner2,
   },
   {
     name: "banner 3",
     src: banner3,
+  },
+  {
+    name: "banner 5",
+    src: banner5,
+  },
+  {
+    name: "banner 6",
+    src: banner6,
+  },
+  {
+    name: "banner 7",
+    src: banner7,
   },
 ];
 

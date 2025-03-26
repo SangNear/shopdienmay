@@ -26,7 +26,6 @@ const Footer = () => {
       <div className="w-full flex flex-col gap-2 lg:px-10 mt-3 max-md:px-2">
         <h3 className="text-2xl text-[#fe0000] font-semibold">Cửa hàng</h3>
 
-       
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.6410130162415!2d106.71811978853776!3d10.789698297339978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290b47e91781%3A0xc4f130a44beae17c!2sSaigon%20Pearl!5e0!3m2!1svi!2s!4v1742876390378!5m2!1svi!2s"
           height="450"
@@ -34,18 +33,21 @@ const Footer = () => {
           className="rounded-lg w-full "
         ></iframe>
 
-        <span className="text-sm text-gray-500">
-          {" "}
-          Coppyright © 2024 bản quyền thuộc shop điện máy
-        </span>
-        {/* <span className="capitalize text-sm text-gray-500">
-          {" "}
-          địa chỉ: 72 - 74 phổ quang tân bình, Tp Hồ Chí Minh
-        </span> */}
-        <span className="capitalize text-sm text-gray-500">
-          {" "}
-          thời gian phục vụ: 8:00 - 18:00 (từ Thứ 2 đến Chủ Nhật)
-        </span>
+        <div className="text-center flex flex-col gap-3 ">
+          <p className="text-sm text-gray-500">
+            Coppyright © 2024 bản quyền thuộc shop điện máy
+          </p>
+
+          <p className="text-sm text-gray-500">
+            Giám đốc:{" "}
+            <span className="font-bold text-black">Ông HOÀNG ĐĂNG HIỂN </span>
+          </p>
+
+          <p className="capitalize text-sm text-gray-500">
+            thời gian phục vụ: 8:00 - 22:00 (từ Thứ 2 đến Chủ Nhật)
+          </p>
+        </div>
+
         <div className="flex gap-5 items-center max-md:justify-between">
           <div className="flex gap-5">
             <FacebookIcon className="text-4xl text-blue-500" />
