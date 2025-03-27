@@ -55,7 +55,6 @@ const ProductForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-
       price: 0.1,
       description: "",
       images: [],
@@ -102,7 +101,7 @@ const ProductForm = () => {
     formData.append("original", values.original);
     formData.append("description", values.description);
     formData.append("price", values.price.toString());
-    formData.append("categories", values.categories);
+    formData.append("categories", values.categories); 
     formData.append("quantity", values.quantity.toString());
     formData.append("specials", values.specials.toString());
     // Append each image file to FormData as files
@@ -113,7 +112,7 @@ const ProductForm = () => {
     }
 
     try {
-      const res = await fetch("http://api.dienmaygiatotsaigon.vn/api/v1/product", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/product`, {
         method: "POST",
         body: formData, // Send FormData with files and metadata
       });
@@ -128,7 +127,6 @@ const ProductForm = () => {
       console.log(error);
     }
   };
-
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files);

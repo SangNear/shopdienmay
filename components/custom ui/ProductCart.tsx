@@ -7,7 +7,7 @@ import tv2 from "../../public/assets/products/tv2.jpg";
 import Link from "next/link";
 import { formatCurrency } from "@/lib/utils";
 
-const ProductCart = ({ name, slug, image, price }: ProductCartProps) => {
+const ProductCart = ({ name, slug, image, price, onClick }: ProductCartProps) => {
   return (
     // Smart-Tivi-Samsung-4K-Crystal-UHD-70-inch-UA70DU7000
     <Link
@@ -16,7 +16,7 @@ const ProductCart = ({ name, slug, image, price }: ProductCartProps) => {
       <span className="text-[#fe0000] absolute text-xs top-1 right-1 px-1 rounded-xl border border-[#fe0000] w-fit  ">trả góp 0% </span>
       <div className="p-2 w-full mt-7 ">
         <Image
-          src={image ? `http://api.dienmaygiatotsaigon.vn/images/${image}` : tv2}
+          src={image ? `${process.env.NEXT_PUBLIC_URL_PRODUCTION}/${image}` : tv2}
           priority
           width={9000}
           height={50}

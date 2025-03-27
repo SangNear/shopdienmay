@@ -17,7 +17,7 @@ const Page = () => {
   const getProducts = async (page = 1) => {
     try {
       const res = await fetch(
-        `http://api.dienmaygiatotsaigon.vn/api/v1/product?page=${page}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/product?page=${page}`,
         {
           method: "GET",
         }

@@ -37,7 +37,7 @@ const ChiTietSanPham = ({ params }: { params: { productSlug: string } }) => {
   const getDetailProduct = async () => {
     try {
       const res = await fetch(
-        `http://api.dienmaygiatotsaigon.vn/api/v1/product/detail/${params.productSlug}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/product/detail/${params.productSlug}`,
         {
           method: "GET",
         }

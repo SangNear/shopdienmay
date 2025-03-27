@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Banner from "@/components/custom ui/Banner";
 import ProductCart from "@/components/custom ui/ProductCart";
 import {
@@ -15,24 +15,26 @@ import TelephoneComponent from "@/components/custom ui/Telephone";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [productSpecials, setProductSpecials] = useState<ProductTypes[]>([])
+  const [productSpecials, setProductSpecials] = useState<ProductTypes[]>([]);
 
   const getAllProductSpecials = async () => {
     try {
-      const res = await fetch("http://api.dienmaygiatotsaigon.vn/api/v1/product/productSpecials", {
-        method: "GET"
-      })
-      const data = await res.json()
-      setProductSpecials(data)
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/product/productSpecials`,
+        {
+          method: "GET",
+        }
+      );
+      const data = await res.json();
+      setProductSpecials(data);
     } catch (error) {
       console.log(error);
-
     }
-  }
+  };
 
   useEffect(() => {
-    getAllProductSpecials()
-  }, [])
+    getAllProductSpecials();
+  }, []);
   return (
     <div className="flex flex-col lg:px-20">
       <div className="flex rounded-2xl">
@@ -54,7 +56,12 @@ export default function Home() {
                 key={index}
                 className="max-sm:basis-1/2 max-md:basis-1/3 max-lg:basis-1/4 lg:basis-1/5 flex justify-around"
               >
-                <ProductCart name={item.name} image={item.images[0]} price={item.price} slug={item.slug} />
+                <ProductCart
+                  name={item.name}
+                  image={item.images[0]}
+                  price={item.price}
+                  slug={item.slug}
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -74,9 +81,7 @@ export default function Home() {
           <ListProducts title="tủ lạnh" />
         </div>
 
-
-
-        <div className=" max-sm:rounded-2xl bg-[#fe0000] max-md mt-2 rounded-2xl mb-4">
+        {/* <div className=" max-sm:rounded-2xl bg-[#fe0000] max-md mt-2 rounded-2xl mb-4">
           <h2 className="text-2xl uppercase font-bold text-white text-center mt-2 ">
             Ưu đãi dành cho bạn
           </h2>
@@ -103,11 +108,10 @@ export default function Home() {
             <ProductCart />
             <ProductCart />
           </div>
-        </div>
+        </div> */}
 
         <SystemStock />
       </div>
-      
 
       {/* <SpeedDialComponent /> */}
       <TelephoneComponent phoneNumber={"0234 3616668"} />

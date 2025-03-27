@@ -34,5 +34,5 @@ type ProductCartProps = {
     slug?: string
     image?: string | StaticImport
     price?: number
-
+    onClick?: () => void
 }

@@ -17,12 +17,11 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { UrlObject } from "url";
 
-
 const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const menuTitle = convertSlugToString(slug);
   const [selectedValue, setSelectedValue] = useState("default");
-  const [page, setPage] = useState(1);  // Track the current page
+  const [page, setPage] = useState(1); // Track the current page
   const [products, setProducts] = useState<ProductTypes[]>([]);
   const [loading, setLoading] = useState(true);
   const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true); // Track visibility of the "Xem Thêm" button
@@ -32,7 +31,7 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
   const getAllProductBySlug = async (page = 1) => {
     try {
       const res = await fetch(
-        `http://api.dienmaygiatotsaigon.vn/api/v1/product/${slug}?page=${page}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/product/${slug}?page=${page}`,
         { method: "GET" }
       );
       if (res.ok) {
@@ -83,7 +82,12 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
                   key={index}
                   className="max-sm:basis-1/2 max-md:basis-1/3 max-lg:basis-1/4 lg:basis-1/5 flex justify-around"
                 >
-                  <ProductCart name={item.name} slug={item.slug} image={item.images[0]} price={item.price} />
+                  <ProductCart
+                    name={item.name}
+                    slug={item.slug}
+                    image={item.images[0]}
+                    price={item.price}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -143,8 +147,9 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
                 <Link
                   href={`/danh-sach-san-pham/${route as unknown as UrlObject}`}
                   key={item}
-                  className={`py-2 px-4 border rounded-lg max-sm:text-sm ${active ? "bg-[#fe0000] text-white" : ""
-                    } `}
+                  className={`py-2 px-4 border rounded-lg max-sm:text-sm ${
+                    active ? "bg-[#fe0000] text-white" : ""
+                  } `}
                 >
                   {item}
                 </Link>
@@ -160,7 +165,12 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
         {products.map((item, index) => (
           <div key={index}>
-            <ProductCart name={item.name} slug={item.slug} image={item.images[0]} price={item.price} />
+            <ProductCart
+              name={item.name}
+              slug={item.slug}
+              image={item.images[0]}
+              price={item.price}
+            />
           </div>
         ))}
       </div>

@@ -17,7 +17,7 @@ export function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL('/', req.url));
     }
   }
-
+  
   // Allow the request to continue if everything is fine
   return NextResponse.next();
 }
