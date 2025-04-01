@@ -65,7 +65,7 @@ const CartForm = () => {
             }
 
             // API call to create order
-            const response = await fetch("http://api.dienmaygiatotsaigon.vn/api/v1/order", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/order`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -167,7 +167,6 @@ const CartForm = () => {
                             </FormItem>
                         )}
                     />
-
                     {/* Payment Method Field */}
                     <FormField
                         control={form.control}
@@ -190,8 +189,6 @@ const CartForm = () => {
                             </FormItem>
                         )}
                     />
-
-
                     <Button type="submit">Xác nhận</Button>
                     {loading ? <Loading /> : ""}
                 </form>

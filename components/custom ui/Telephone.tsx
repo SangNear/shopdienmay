@@ -33,7 +33,7 @@ const TelephoneComponent = ({ phoneNumber }: { phoneNumber: string }) => {
     <div ref={buttonRef} className="fixed bottom-16 right-5">
       <a
         href={`tel:${phoneNumber}`}
-        className="relative bg-gradient-to-r from-red-400 to-red-600 text-white font-bold py-2 px-2 rounded-full shadow-xl text-sm
+        className="relative bg-gradient-to-r from-red-400 to-red-600 text-white font-bold py-2 px-6 rounded-full shadow-xl text-sm
         hover:shadow-2xl hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out flex items-center justify-center gap-3
         before:absolute before:content-[''] before:w-12 before:h-12 before:bg-white/30 before:rounded-full before:blur-lg before:opacity-0 hover:before:opacity-100"
       >
@@ -52,7 +52,11 @@ const TelephoneComponent = ({ phoneNumber }: { phoneNumber: string }) => {
             d="M3 5a2 2 0 012-2h3.28a2 2 0 011.8 1.11l1.6 3.2a2 2 0 01-.45 2.38L8.91 12.8a11.97 11.97 0 005.29 5.29l1.11-1.11a2 2 0 012.38-.45l3.2 1.6a2 2 0 011.11 1.8V19a2 2 0 01-2 2h-2c-9.94 0-18-8.06-18-18V5z"
           />
         </svg>
-        Tổng đài hỗ trợ
+        <div className="flex flex-col gap-2">
+          <p className="text-xs">Tổng đài Đặt hàng</p>
+          <p className="text-xs pl-5">0917989198</p>
+          <p className="text-xs pl-3">0234.3616668</p>
+        </div>
       </a>
     </div>
   );

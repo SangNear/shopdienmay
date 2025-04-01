@@ -11,8 +11,7 @@ import banner1 from "../public/assets/banner/banner-thiet-bi-dien-may.png";
 import banner2 from "../public/assets/banner/banner2.jpg";
 import banner3 from "../public/assets/banner/banner3.jpeg";
 import banner5 from "../public/assets/banner/banner5.jpg";
-import banner6 from "../public/assets/banner/banner6.jpg";
-import banner7 from "../public/assets/banner/banner7.jpg";
+
 
 
 import maygiat from "../public/assets/stock/maygiat1.jpg";
@@ -196,14 +195,7 @@ export const imagesCarousel = [
     name: "banner 5",
     src: banner5,
   },
-  {
-    name: "banner 6",
-    src: banner6,
-  },
-  {
-    name: "banner 7",
-    src: banner7,
-  },
+  
 ];
 
 export const maygiatImageStock = [

@@ -13,7 +13,7 @@ const Page = () => {
 
   const getAllCollection = async () => {
     try {
-      const res = await fetch("http://api.dienmaygiatotsaigon.vn/api/v1/category", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/category`, {
         method: "GET",
       });
       const data = await res.json();

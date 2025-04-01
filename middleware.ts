@@ -17,11 +17,17 @@ export function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL('/', req.url));
     }
   }
+  else if (url.pathname.startsWith('/quantri')) {
+    return NextResponse.redirect(new URL('/login', req.url));
+  }
   
   // Allow the request to continue if everything is fine
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/checkout'], // Apply middleware only on the /checkout route
+  matcher: ['/checkout']  // Apply middleware only on the /checkout route
 };
+// export const config = {
+//   matcher: ['/checkout', '/quantri/sanpham', '/quantri/danhmuc', '/quantri/thongke', '/quantri/donhang']  // Apply middleware only on the /checkout route
+// };

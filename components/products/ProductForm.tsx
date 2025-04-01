@@ -73,7 +73,7 @@ const ProductForm = () => {
   const getCollection = async () => {
     try {
       const res = await fetch(
-        "http://api.dienmaygiatotsaigon.vn/api/v1/category",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/category`,
         {
           method: "GET",
         }
