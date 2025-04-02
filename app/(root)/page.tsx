@@ -51,7 +51,7 @@ export default function Home() {
           className=""
         >
           <CarouselContent>
-            {productSpecials.map((item, index) => (
+            {productSpecials && productSpecials.map((item, index) => (
               <CarouselItem
                 key={index}
                 className="max-sm:basis-1/2 max-md:basis-1/3 max-lg:basis-1/4 lg:basis-1/5 flex justify-around"
@@ -71,6 +71,9 @@ export default function Home() {
       </div>
       <Separator className="text-[#fe0000] bg-[#fe0000] mt-10" />
       <div className="flex flex-col justify-between  mt-10 ">
+      <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
+          <ListProducts title="loa" />
+        </div>
         <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
           <ListProducts title="tivi" />
         </div>
@@ -80,6 +83,7 @@ export default function Home() {
         <div className="w-full h-auto bg-transparent max-md:px-2 mb-3">
           <ListProducts title="tủ lạnh" />
         </div>
+        
 
         {/* <div className=" max-sm:rounded-2xl bg-[#fe0000] max-md mt-2 rounded-2xl mb-4">
           <h2 className="text-2xl uppercase font-bold text-white text-center mt-2 ">

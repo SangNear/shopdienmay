@@ -38,7 +38,7 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
         const data = await res.json();
         // If there are no more products to load, hide the "Xem Thêm" button
         const { products: newProducts, totalPages, currentPage } = data;
-        setProducts((prevProducts) => [...prevProducts, ...newProducts]);
+        setProducts(page === 1 ? newProducts : (prevProducts) => [...prevProducts, ...newProducts]);
         setTotalPages(totalPages);
         setCurrentPage(currentPage);
         setLoading(false);
@@ -52,14 +52,17 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
 
   useEffect(() => {
     getAllProductBySlug();
-  }, []); // Fetch products when the page changes
-
+  }, [slug]); // Fetch products when the page changes
+  console.log("product", products);
   const handleLoadMore = () => {
     if (currentPage < totalPages) {
       setIsLoadingMore(true);
       getAllProductBySlug(currentPage + 1);
     }
   };
+
+  
+  
 
   return (
     <div className="lg:px-20 max-md:px-2 w-full">
@@ -163,8 +166,8 @@ const DanhSachSanPham = ({ params }: { params: { slug: string } }) => {
 
       {/* list */}
       <div className="w-full h-auto flex flex-wrap justify-between gap-2 my-5 rounded-xl bg-white py-4 max-sm:justify-evenly ">
-        {products.map((item, index) => (
-          <div key={index}>
+        {products.map((item, ) => (
+          <div key={item._id}>
             <ProductCart
               name={item.name}
               slug={item.slug}

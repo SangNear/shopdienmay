@@ -9,7 +9,7 @@ interface ListProductProps {
   title: string;
 }
 
-const ListProducts = ({ title }: ListProductProps) => {
+const   ListProducts = ({ title }: ListProductProps) => {
   const [products, setProducts] = useState<ProductTypes[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const slug = toslug(title);

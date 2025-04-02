@@ -9,12 +9,12 @@ interface SwitchSpecialsProps {
 const SwitchSpecials = ({ isSpecials, slug }: SwitchSpecialsProps) => {
     const [value, setValue] = useState(isSpecials);
 
-    useEffect(() => {
-        console.log("SwitchSpecials component mounted with ID:", { slug, value });
-        if (!slug) {
-            console.warn("Warning: ID is undefined or null");
-        }
-    }, [slug]);
+    // useEffect(() => {
+    //     console.log("SwitchSpecials component mounted with ID:", { slug, value });
+    //     if (!slug) {
+    //         console.warn("Warning: ID is undefined or null");
+    //     }
+    // }, [slug]);
 
     const handleToggleSpecials = async () => {
         try {
@@ -38,15 +38,14 @@ const SwitchSpecials = ({ isSpecials, slug }: SwitchSpecialsProps) => {
 
             // Check if the request was successful
             if (!response.ok) {
-                console.error('Failed to update specials:', data.error);
+                console.error('Failed to update specials:' );
             } else {
-                console.log('Specials updated successfully:', data.product);
+                console.log('Specials updated successfully:');
             }
         } catch (error) {
             console.error('Error updating specials:', error);
         }
     };
-
     return (
         <Switch
             checked={value}
