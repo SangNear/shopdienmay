@@ -9,6 +9,7 @@ export function middleware(req: NextRequest) {
 
   // Redirect if user tries to access the checkout without payment completion
   const isPaymentComplete = cookies.get('isPaymentComplete');
+  const token = cookies.get('token')
 
   // Check if the user is trying to access the /checkout page
   if (url.pathname.startsWith('/checkout')) {
@@ -18,16 +19,21 @@ export function middleware(req: NextRequest) {
     }
   }
   else if (url.pathname.startsWith('/quantri')) {
-    return NextResponse.redirect(new URL('/login', req.url));
+    if(!token) {
+      return NextResponse.redirect(new URL('/login', req.url));
+    }
+  }
+  else if (url.pathname.startsWith('/login')) {
+    if(token) {
+      return NextResponse.redirect(new URL('/quantri/thongke', req.url));
+    }
   }
   
   // Allow the request to continue if everything is fine
   return NextResponse.next();
 }
 
+
 export const config = {
-  matcher: ['/checkout']  // Apply middleware only on the /checkout route
+  matcher: ['/checkout', '/quantri/:path*', '/login']  // Apply middleware only on the /checkout route
 };
-// export const config = {
-//   matcher: ['/checkout', '/quantri/sanpham', '/quantri/danhmuc', '/quantri/thongke', '/quantri/donhang']  // Apply middleware only on the /checkout route
-// };

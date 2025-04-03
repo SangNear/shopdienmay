@@ -20,7 +20,7 @@ import { CartContext } from "@/lib/context/cartContext/ContextProvider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"; // Import RadioGroup components
 import Loading from "../custom ui/Loading";
 
-// Extend form schema to include paymentMethod
+
 const formSchema = z.object({
     customerName: z.string().min(2).max(50),
     addr: z.string().min(2).max(100),
